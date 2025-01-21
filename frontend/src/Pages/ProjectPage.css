@@ -1,0 +1,74 @@
+body {
+  background-color: var(--main-bg-color);
+}
+.ProjectPage {
+  background-color: var(--section-bg-color);
+  padding: 40px 0;
+}
+
+.custom-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-left: 150px;
+  padding-right: 120px;
+  padding-top: 100px;
+}
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.myProjectContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  width: 100%;
+}
+
+.myProjects {
+  font-weight: bolder;
+  font-size: 50px;
+  color: #ffffff;
+  text-align: center;
+  border-right: 3px solid #32cd32;
+
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #32cd32;
+  display: inline-block;
+  animation: typing 4s steps(40) 0.1s 1 normal both;
+}
+@keyframes cursor-blink {
+  0%,
+  100% {
+    border-right-color: #32cd32;
+  }
+  50% {
+    border-right-color: transparent;
+  }
+}
+.myProjects.typing-done {
+  border-right-color: transparent;
+  border-right: none;
+}
+
+.styling-card {
+  background-color: #242424 !important;
+  border-color: #00bfff !important;
+  border-width: 5px;
+  width: 100%;
+  max-width: 30rem;
+  padding: 50px;
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

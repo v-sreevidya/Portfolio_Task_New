@@ -1,0 +1,26 @@
+.NavbarComponent {
+  background-color: #000000;
+}
+
+.NavbarComponent .navbar-brand,
+.NavbarComponent .nav-link {
+  color: #32cd32;
+  text-decoration: none;
+}
+
+.NavbarComponent .nav-link:hover,
+.NavbarComponent .navbar-brand:hover {
+  color: white !important;
+}
+
+.NavbarComponent .nav-link.active,
+.NavbarComponent .navbar-brand.active {
+  color: white !important;
+}
+
+.NavbarComponent .nav-link:focus,
+.NavbarComponent .nav-link:active,
+.NavbarComponent .navbar-brand:active,
+.NavbarComponent .navbar-brand:focus {
+  color: white !important;
+}
