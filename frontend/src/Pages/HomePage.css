@@ -1,0 +1,27 @@
+
+.scrollable-container {
+  padding-top: 80px; 
+  overflow-y: auto;
+  height: 100vh; 
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  padding: 40px;
+  min-height: 100vh; 
+  background-color: black;
+  color: white;
+  scroll-snap-align: start;
+}
+
+section h1 {
+  margin-bottom: 20px;
+}
+
+
+.home-section, .about-section, .contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

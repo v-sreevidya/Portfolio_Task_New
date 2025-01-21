@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import "./ProjectPage.css";
-import image1 from "./../Assets/Images/image1.jpeg";
+import image1 from "./../Assets/Images/image1.jpeg"; 
 const ProjectPage = () => {
   const [typingDone, setTypingDone] = useState(false);
-
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       setTypingDone(true);
     });
+    
     return () => clearTimeout(timer);
   }, []);
+
 
   return (
     <div className="ProjectPage">
@@ -25,12 +27,10 @@ const ProjectPage = () => {
           <Card className="styling-card">
             <Card.Img variant="top" src={image1} />
             <Card.Body>
-              <Card.Title>Project Name 1</Card.Title>
+              <Card.Title>Grievance Management System</Card.Title>
               <Card.Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi error rem quia fugiat odio at, magnam doloribus alias
-                repellendus corporis veniam iste tempora, eveniet ratione
-                quidem. Provident placeat illum fugit?
+                A website for registering grievance with regards to online shopping. It consisted of User interface,
+                supervisor interface and assignee interface.
               </Card.Text>
             </Card.Body>
             <Button>Learn More</Button>
@@ -41,12 +41,11 @@ const ProjectPage = () => {
           <Card className="styling-card">
             <Card.Img variant="top" src={image1} />
             <Card.Body>
-              <Card.Title>Project Name 2</Card.Title>
+              <Card.Title>Implementation of MIL-STD-1553B Bus Controller 
+                for the Testing of Avionics Systems</Card.Title>
               <Card.Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi error rem quia fugiat odio at, magnam doloribus alias
-                repellendus corporis veniam iste tempora, eveniet ratione
-                quidem. Provident placeat illum fugit?
+                A software based implenetation of MIL-STD-1553B Bus Controllert ailored for the testing of
+                avionics systems.
               </Card.Text>
             </Card.Body>
             <Button>Learn More</Button>
@@ -57,12 +56,9 @@ const ProjectPage = () => {
           <Card className="styling-card">
             <Card.Img variant="top" src={image1} />
             <Card.Body>
-              <Card.Title>Project Name 3</Card.Title>
+              <Card.Title>IoT Based Electrical Device Control System</Card.Title>
               <Card.Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi error rem quia fugiat odio at, magnam doloribus alias
-                repellendus corporis veniam iste tempora, eveniet ratione
-                quidem. Provident placeat illum fugit?
               </Card.Text>
             </Card.Body>
             <Button>Learn More</Button>
@@ -76,9 +72,6 @@ const ProjectPage = () => {
               <Card.Title>Project Name 4</Card.Title>
               <Card.Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi error rem quia fugiat odio at, magnam doloribus alias
-                repellendus corporis veniam iste tempora, eveniet ratione
-                quidem. Provident placeat illum fugit?
               </Card.Text>
             </Card.Body>
             <Button>Learn More</Button>
@@ -88,4 +81,5 @@ const ProjectPage = () => {
     </div>
   );
 };
+
 export default ProjectPage;

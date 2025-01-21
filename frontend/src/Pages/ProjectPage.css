@@ -1,8 +1,5 @@
-body {
-  background-color: var(--main-bg-color);
-}
 .ProjectPage {
-  background-color: var(--section-bg-color);
+  background-color: black;
   padding: 40px 0;
 }
 
@@ -16,6 +13,31 @@ body {
   padding-right: 120px;
   padding-top: 100px;
 }
+
+.styling-card {
+  background-color: lightcoral !important;
+  border-width: 5px;
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px;
+  border-radius: 8px;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.myProjects {
+  font-weight: bolder;
+  font-size: 50px;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #32cd32;
+  animation: typing 4s steps(40) 0.1s 1 normal both;
+}
+
 @keyframes typing {
   0% {
     width: 0;
@@ -58,17 +80,4 @@ body {
 .myProjects.typing-done {
   border-right-color: transparent;
   border-right: none;
-}
-
-.styling-card {
-  background-color: #242424 !important;
-  border-color: #00bfff !important;
-  border-width: 5px;
-  width: 100%;
-  max-width: 30rem;
-  padding: 50px;
-  color: white !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }

@@ -1,45 +1,43 @@
 import React from "react";
-import "./NavbarComponent.css";
 import { Navbar, Nav } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
-
+import { HashLink } from "react-router-hash-link"; 
+import './NavbarComponent.css';
 const NavbarComponent = () => {
   return (
     <div>
-      <Navbar className="NavbarComponent">
-        <Navbar.Brand className="mx-5" as={Link} to="/">
+      <Navbar className="NavbarComponent" fixed="top">
+        <Navbar.Brand className="mx-5" as={HashLink} to="#home-section">
           My Portfolio
         </Navbar.Brand>
         <Nav className="ms-auto">
-          <NavLink
-            to="/"
-            exact
+          <HashLink
+            to="#home-section"
             className="mx-3 nav-link"
             activeClassName="active-link"
           >
             Home
-          </NavLink>
-          <NavLink
-            to="/about"
+          </HashLink>
+          <HashLink
+            to="#about-section"
             className="mx-3 nav-link"
             activeClassName="active-link"
           >
             About
-          </NavLink>
-          <NavLink
-            to="/projects"
+          </HashLink>
+          <HashLink
+            to="#projects-section"
             className="mx-3 nav-link"
             activeClassName="active-link"
           >
             Projects
-          </NavLink>
-          <NavLink
-            to="/contact"
+          </HashLink>
+          <HashLink
+            to="#contact-section"
             className="mx-3 nav-link"
             activeClassName="active-link"
           >
             Contact Me
-          </NavLink>
+          </HashLink>
         </Nav>
       </Navbar>
     </div>
