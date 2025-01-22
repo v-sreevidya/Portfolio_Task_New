@@ -2,18 +2,19 @@ import React from "react";
 import ProjectsPage from "./ProjectPage"; 
 import NavbarComponent from "../Components/NavbarComponent"; 
 import "./HomePage.css"; 
+import HomeSectionPage from "./HomeSectionPage";
+import ContactPage from "./ContactPage";
+import AboutPage from "./AboutPage";
 
 const HomePage = () => {
   return (
     <div className="scrollable-container">
       <section id="home-section" className="home-section">
-        <h1>Welcome to My Portfolio</h1>
-        <p>This is a brief introduction to my work.</p>
+        <HomeSectionPage />
       </section>
 
       <section id="about-section" className="about-section">
-        <h1>About Me</h1>
-        <p>This is where I tell you about myself and my experiences.</p>
+        <AboutPage />
       </section>
 
       <section id="projects-section" className="projects-section">
@@ -21,8 +22,7 @@ const HomePage = () => {
       </section>
 
       <section id="contact-section" className="contact-section">
-        <h1>Contact</h1>
-        <p>Get in touch with me.</p>
+        <ContactPage />
       </section>
     </div>
   );

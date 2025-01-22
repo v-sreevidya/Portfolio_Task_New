@@ -1,0 +1,74 @@
+.detail{
+    background-color: #2A2A2A;
+    border: 1px solid #39FF14;
+    color: #CFCFCF;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+   margin-bottom: 15px;
+   
+}
+
+.btn-primary[type="submit"]{
+    background-color: #4CAF50;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    width: 50%;
+}
+
+.btn-primary[type="submit"]:hover{
+    background-color: #388E3C;
+    
+}
+
+
+.text-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    
+}
+
+
+.container{
+   margin-top: 1.5rem;
+   width: 100%;
+   
+   
+  
+    
+}
+
+.forms{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    
+    width: 100%;
+}
+
+.text-center{
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-icons{
+    display: flex;
+    align-items: center;
+    padding-bottom: 100px;
+    gap: 20px;
+  
+}
+
+.linkedin{
+    color: #0077b5;
+}
+.mail{
+    color: #ff6600;
+} 

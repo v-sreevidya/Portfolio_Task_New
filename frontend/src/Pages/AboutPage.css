@@ -1,0 +1,31 @@
+
+
+  
+  
+  .round-img {
+    width: 450px; 
+    height: 450px;
+    object-fit: cover; 
+    border-radius: 50%; 
+    
+    
+  }
+  
+ 
+  .aboutme {
+    font-size: 1.3rem; 
+    line-height: 1.6; 
+   color: #CFCFCF;
+    padding-left: 20px; 
+    text-align: left; 
+  }
+  
+ .about-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+ }
+ 
+  
+  

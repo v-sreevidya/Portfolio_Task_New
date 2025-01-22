@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, CardGroup } from "react-bootstrap";
 import "./ProjectPage.css";
-import image1 from "./../Assets/Images/image1.jpeg"; 
+import image1 from "./../Assets/Images/grievance.jpeg";
+import finalprojectimg from './../Assets/Images/finalproject.png';
+import iotimg from './../Assets/Images/iot.png';
 const ProjectPage = () => {
   const [typingDone, setTypingDone] = useState(false);
   
@@ -17,9 +19,9 @@ const ProjectPage = () => {
   return (
     <div className="ProjectPage">
       <div className="myProjectContainer">
-        <h1 className={`myProjects ${typingDone ? "typing-done" : ""}`}>
+        <p className={`myProjects ${typingDone ? "typing-done" : ""}`}>
           Projects I've Been Part Of
-        </h1>
+        </p>
       </div>
 
       <CardGroup>
@@ -27,11 +29,8 @@ const ProjectPage = () => {
           <Card className="styling-card">
             <Card.Img variant="top" src={image1} />
             <Card.Body>
-              <Card.Title>Grievance Management System</Card.Title>
-              <Card.Text>
-                A website for registering grievance with regards to online shopping. It consisted of User interface,
-                supervisor interface and assignee interface.
-              </Card.Text>
+              <Card.Title>GRIEVANCE MANAGEMENT SYSTEM</Card.Title>
+              
             </Card.Body>
             <Button>Learn More</Button>
           </Card>
@@ -39,14 +38,10 @@ const ProjectPage = () => {
 
         <div className="custom-container">
           <Card className="styling-card">
-            <Card.Img variant="top" src={image1} />
+            <Card.Img variant="top" src={finalprojectimg} />
             <Card.Body>
-              <Card.Title>Implementation of MIL-STD-1553B Bus Controller 
-                for the Testing of Avionics Systems</Card.Title>
-              <Card.Text>
-                A software based implenetation of MIL-STD-1553B Bus Controllert ailored for the testing of
-                avionics systems.
-              </Card.Text>
+              <Card.Title>IMPLEMENTATION OF MIL-STD-1553B BUS CONTROLLER FOR THE TESTING OF AVIONICS SYSTEMS</Card.Title>
+              
             </Card.Body>
             <Button>Learn More</Button>
           </Card>
@@ -54,12 +49,10 @@ const ProjectPage = () => {
 
         <div className="custom-container">
           <Card className="styling-card">
-            <Card.Img variant="top" src={image1} />
+            <Card.Img variant="top" src={iotimg} />
             <Card.Body>
-              <Card.Title>IoT Based Electrical Device Control System</Card.Title>
-              <Card.Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </Card.Text>
+              <Card.Title>IoT BASED ELECTRICAL DEVICE CONTROL SYSTEM</Card.Title>
+              
             </Card.Body>
             <Button>Learn More</Button>
           </Card>

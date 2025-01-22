@@ -4,6 +4,7 @@ import NavbarComponent from "./Components/NavbarComponent";
 import HomePage from "./Pages/HomePage";
 import "./App.css";
 
+
 function App() {
   return (
     <HashRouter>
@@ -11,6 +12,7 @@ function App() {
         <NavbarComponent />
 
         <HomePage />
+        
       </div>
     </HashRouter>
   );

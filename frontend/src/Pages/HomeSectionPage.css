@@ -1,0 +1,38 @@
+.tech-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .tech-icons .fa-react {
+    color: #61DBFB; 
+  }
+  
+  .tech-icons .fa-html5 {
+    color: #E34F26; 
+  }
+  
+  .tech-icons .fa-css3-alt {
+    color: #1572B6; 
+  }
+  
+  .tech-icons .fa-js-square {
+    color: #F7DF1E ; 
+  }
+  
+  .tech-icons .fa-node {
+    color: #8CC84B; 
+  }
+  
+  .tech-icons .fa-git {
+    color: #F1502F; 
+  }
+  
+  
+  .tech-icons .fa-java {
+    color: #007396; 
+  }
+  h1, h3, h5{
+    color: #39FF14;
+    text-shadow: 0 0 10px rgb(57,255,20,0.7);
+  }
