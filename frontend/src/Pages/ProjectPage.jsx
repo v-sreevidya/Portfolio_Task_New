@@ -4,6 +4,7 @@ import "./ProjectPage.css";
 import image1 from "./../Assets/Images/grievance.jpeg";
 import finalprojectimg from './../Assets/Images/finalproject.png';
 import iotimg from './../Assets/Images/iot.png';
+
 const ProjectPage = () => {
   const [typingDone, setTypingDone] = useState(false);
   
@@ -14,6 +15,8 @@ const ProjectPage = () => {
     
     return () => clearTimeout(timer);
   }, []);
+
+ 
 
 
   return (
@@ -32,7 +35,7 @@ const ProjectPage = () => {
               <Card.Title>GRIEVANCE MANAGEMENT SYSTEM</Card.Title>
               
             </Card.Body>
-            <Button>Learn More</Button>
+            <Button > Learn More</Button>
           </Card>
         </div>
 
@@ -43,7 +46,7 @@ const ProjectPage = () => {
               <Card.Title>IMPLEMENTATION OF MIL-STD-1553B BUS CONTROLLER FOR THE TESTING OF AVIONICS SYSTEMS</Card.Title>
               
             </Card.Body>
-            <Button>Learn More</Button>
+            <Button> Learn More</Button>
           </Card>
         </div>
 
@@ -71,6 +74,7 @@ const ProjectPage = () => {
           </Card>
         </div>
       </CardGroup>
+      
     </div>
   );
 };

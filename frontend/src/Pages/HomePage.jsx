@@ -6,6 +6,7 @@ import HomeSectionPage from "./HomeSectionPage";
 import ContactPage from "./ContactPage";
 import AboutPage from "./AboutPage";
 
+
 const HomePage = () => {
   return (
     <div className="scrollable-container">
@@ -19,7 +20,9 @@ const HomePage = () => {
 
       <section id="projects-section" className="projects-section">
         <ProjectsPage />
+        
       </section>
+      
 
       <section id="contact-section" className="contact-section">
         <ContactPage />

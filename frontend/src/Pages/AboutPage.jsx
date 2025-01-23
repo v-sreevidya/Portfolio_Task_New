@@ -1,6 +1,6 @@
 import React from "react";
 import './AboutPage.css';
-import profileimg from './../Assets/Images/image1.jpeg';
+import profileimg from './../Assets/Images/Anna.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationPin } from '@fortawesome/free-solid-svg-icons';
 const AboutPage = () => {
