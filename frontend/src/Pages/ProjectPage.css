@@ -15,13 +15,9 @@
 }
 
 .styling-card {
-  background-color:rgba(30, 30,30,0.9) !important;
- 
-  
+  background-color: rgba(30, 30, 30, 0.9) !important;
   border-width: 5px;
- 
-  transition:  transform 0.2s, box-shadow 0.2s;
-  
+  transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,25 +26,24 @@
   width: 400px;
   height: 500px !important;
   margin-bottom: 20px;
-  
-  
 }
-.styling-card img{
+
+.styling-card img {
   width: 100%;
   height: 200px;
   object-fit: contain;
   padding-bottom: 20px;
 }
-.styling-card .card-title{
+
+.styling-card .card-title {
   color: #FFFFFF;
-  
   font-size: 1.4rem;
-  padding:auto;
+  padding: auto;
 }
 
 .styling-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px #32CD32; 
+  box-shadow: 0 0 20px #32CD32;
 }
 
 .myProjects {
@@ -71,38 +66,7 @@
   }
 }
 
-.myProjectContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-  width: 100%;
-}
-
-.myProjects {
-  font-weight: bolder;
-  font-size: 50px;
-  color: #ffffff;
-  text-align: center;
-  border-right: 3px solid #32cd32;
-
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid #32cd32;
-  display: inline-block;
-  animation: typing 4s steps(40) 0.1s 1 normal both;
-}
-@keyframes cursor-blink {
-  0%,
-  100% {
-    border-right-color: #32cd32;
-  }
-  50% {
-    border-right-color: transparent;
-  }
-}
 .myProjects.typing-done {
   border-right-color: transparent;
   border-right: none;
 }
-

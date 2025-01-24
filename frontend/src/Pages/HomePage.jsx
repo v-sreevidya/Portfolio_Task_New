@@ -1,11 +1,9 @@
 import React from "react";
-import ProjectsPage from "./ProjectPage"; 
-import NavbarComponent from "../Components/NavbarComponent"; 
-import "./HomePage.css"; 
+import "./HomePage.css";
 import HomeSectionPage from "./HomeSectionPage";
-import ContactPage from "./ContactPage";
 import AboutPage from "./AboutPage";
-
+import ProjectsPage from "./ProjectPage";
+import ContactPage from "./ContactPage";
 
 const HomePage = () => {
   return (
@@ -20,9 +18,7 @@ const HomePage = () => {
 
       <section id="projects-section" className="projects-section">
         <ProjectsPage />
-        
       </section>
-      
 
       <section id="contact-section" className="contact-section">
         <ContactPage />

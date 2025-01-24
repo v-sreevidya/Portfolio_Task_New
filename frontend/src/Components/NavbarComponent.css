@@ -1,10 +1,10 @@
 .NavbarComponent {
-  background-color: black!important;
+  background-color: black !important;
 }
 
 .NavbarComponent .navbar-brand,
 .NavbarComponent .nav-link {
-  color: #FFFFFF!important;
+  color: #FFFFFF !important;
   text-decoration: none;
 }
 
@@ -15,7 +15,7 @@
 
 .NavbarComponent .nav-link.active,
 .NavbarComponent .navbar-brand.active {
-  color: #39FF14!important;
+  color: #39FF14 !important;
 }
 
 .NavbarComponent .nav-link:focus,
