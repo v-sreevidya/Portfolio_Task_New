@@ -1,47 +1,49 @@
 .project-details-container {
   padding: 20px;
-  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  background-color: #1e1e1e;
-  color: #fff;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .project-details-container h2 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #39FF14; 
+  font-size: 2rem;
   margin-bottom: 20px;
-  text-align: center;
-  margin-bottom: 50px;
+  color: #333;
 }
 
-.project-details-container p {
-  font-size: 1.3rem;
+.project-details-text {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #333;
   line-height: 1.6;
-  padding: 10px;
-  color: #dcdcdc;
-  text-align: left;
+  white-space: pre-line; 
+  border: 1px solid #ddd;
 }
 
-.project-details-container .project-image {
-  max-width: 100%;
+.project-image {
+  width: 100%;
   height: auto;
-  margin-top: 30px;
-  border-radius: 12px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.project-details-container .error-message {
-  color: red;
-  font-weight: bold;
+.project-details-container div {
+  color: #888;
+  font-size: 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  margin-top: 20px;
 }
 
-.project-details-container .loading {
-  text-align: center;
-  font-size: 1.5rem;
-  color: #fff;
+.project-details-text p {
+  margin: 0;
 }
+
+.project-details-container img {
+  margin-top: 20px;
+}
+

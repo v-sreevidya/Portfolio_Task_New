@@ -33,27 +33,17 @@ const Project1 = () => {
     return <div>{error}</div>;
   }
 
-  const renderPDF = (base64String) => {
-    const pdfData = `data:application/pdf;base64,${base64String}`;
-    return <embed src={pdfData} width="100%" height="600px" type="application/pdf" />;
-  };
-
   return (
     <div className="project-details-container">
       <h2>{project.title}</h2>
+
       
-     
       {project.details ? (
-        renderPDF(project.details) 
+        <div className="project-details-text">
+          <p>{project.details}</p> 
+        </div>
       ) : (
         <div>No details available</div>
-      )}
-
-    
-      {project.details && (
-        <a href={`data:application/pdf;base64,${project.details}`} download={`project-details-${project.title}.pdf`}>
-          Download Details (PDF)
-        </a>
       )}
       
       
