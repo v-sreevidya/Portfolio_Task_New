@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import './Project1.css';
-const Project1 = () => {
+import './Project2.css';
+const Project2 = () => {
   const { id } = useParams();  
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -50,4 +50,4 @@ const Project1 = () => {
   );
 };
 
-export default Project1;
+export default Project2;

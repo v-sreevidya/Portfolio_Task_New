@@ -39,7 +39,7 @@ const ProjectPage = () => {
             <Card.Body>
               <Card.Title>GRIEVANCE MANAGEMENT SYSTEM</Card.Title>
             </Card.Body>
-            <Button onClick={() => handleNavigate('f82c26cf-2245-41ee-84d3-1f61cd678b0e')}>Learn More</Button>
+            <Button onClick={() => handleNavigate('a37768cb-1671-40ee-85bd-c7d7a03174fd')}>Learn More</Button>
           </Card>
         </div>
 
@@ -49,7 +49,7 @@ const ProjectPage = () => {
             <Card.Body>
               <Card.Title>IMPLEMENTATION OF MIL-STD-1553B BUS CONTROLLER</Card.Title>
             </Card.Body>
-            <Button onClick={() => handleNavigate('project2')}>Learn More</Button>
+            <Button onClick={() => handleNavigate('5c34ac79-ceb5-480e-98cd-b5e8a043b719')}>Learn More</Button>
           </Card>
         </div>
 
