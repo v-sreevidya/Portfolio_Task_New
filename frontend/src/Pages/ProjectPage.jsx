@@ -39,7 +39,7 @@ const ProjectPage = () => {
             <Card.Body>
               <Card.Title>GRIEVANCE MANAGEMENT SYSTEM</Card.Title>
             </Card.Body>
-            <Button onClick={() => handleNavigate('a37768cb-1671-40ee-85bd-c7d7a03174fd')}>Learn More</Button>
+            <Button onClick={() => handleNavigate('1f2a99da-8139-4eca-a138-1d5f88f6aaeb')}>Learn More</Button>
           </Card>
         </div>
 
