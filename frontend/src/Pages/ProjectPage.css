@@ -70,3 +70,65 @@
   border-right-color: transparent;
   border-right: none;
 }
+
+@media (max-width: 375px) {
+  .custom-container {
+    flex-direction: column;
+    padding: 10px; 
+  }
+
+  .styling-card {
+    padding: 15px; 
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .styling-card .card-title {
+    font-size: 1.1rem; 
+  }
+
+  .myProjects {
+    font-size: 2rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-container {
+    flex-direction: column;
+    padding: 10px; 
+  }
+
+  .styling-card {
+    padding: 15px; 
+    width: 100%; 
+    max-width: 300px;
+  }
+
+  .styling-card .card-title {
+    font-size: 1.1rem; 
+  }
+
+  .myProjects {
+    font-size: 2rem; 
+  }
+}
+@media (max-width: 1024px) {
+  .custom-container {
+    flex-direction: column;
+    padding: 10px; 
+  }
+
+  .styling-card {
+    padding: 15px; 
+    width: 100%; 
+    max-width: 300px;
+  }
+
+  .styling-card .card-title {
+    font-size: 1.1rem; 
+  }
+
+  .myProjects {
+    font-size: 2rem; 
+  }
+}

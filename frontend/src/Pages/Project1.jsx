@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import './Project1.css';
 
 const Project1 = () => {
-  const { id } = useParams();  
+  const { id } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ const Project1 = () => {
     const fetchProjectData = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/api/projects/${id}`);
-        setProject(response.data); 
+        setProject(response.data);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching project data:', err);
@@ -23,7 +23,7 @@ const Project1 = () => {
     };
 
     fetchProjectData();
-  }, [id]); 
+  }, [id]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -36,8 +36,6 @@ const Project1 = () => {
   return (
     <div className="project-details-container">
       <h2>{project.title}</h2>
-
-      
       {project.details ? (
         <div className="project-details-text">
           <p>{project.details}</p> 
@@ -45,8 +43,6 @@ const Project1 = () => {
       ) : (
         <div>No details available</div>
       )}
-      
-      
       {project.image ? (
         <img
           src={`data:image/jpeg;base64,${project.image}`} 

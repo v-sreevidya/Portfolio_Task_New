@@ -24,3 +24,35 @@
 .NavbarComponent .navbar-brand:focus {
   color: white !important;
 }
+@media (max-width: 375px) {
+  .NavbarComponent {
+    padding: 10px; 
+  }
+
+  .NavbarComponent .navbar-brand {
+    font-size: 1.2rem; 
+    margin-bottom: 15px; 
+  }
+
+  .NavbarComponent .nav-link {
+    font-size: 0.9rem; 
+    margin: 5px 0; 
+  }
+}
+
+@media (max-width: 768px) {
+  .NavbarComponent {
+    padding: 10px; 
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+
+  .NavbarComponent .navbar-brand,
+  .NavbarComponent .nav-link {
+    font-size: 1rem;
+    margin: 10px 0; 
+  }
+}
+
+
+

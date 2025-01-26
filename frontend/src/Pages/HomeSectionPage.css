@@ -1,8 +1,19 @@
 .tech-icons {
   display: flex;
-  justify-content: flex-start;
-  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center; 
+  text-align: center;
+  gap: 10px; 
   margin-top: 20px;
+}
+
+.tech-icons i {
+  font-size: 2rem; 
+  transition: transform 0.2s ease; 
+}
+
+.tech-icons i:hover {
+  transform: scale(1.2); 
 }
 
 .tech-icons .fa-react {
@@ -35,5 +46,55 @@
 
 h1, h3, h5 {
   color: #39FF14;
-  text-shadow: 0 0 10px rgb(57,255,20,0.7);
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+ 
+ 
+ align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  .tech-icons {
+    justify-content: center; 
+    gap: 8px; 
+  }
+
+  .tech-icons i {
+    font-size: 1.8rem; 
+  }
+
+  h1 {
+    font-size: 2rem; 
+  }
+
+  h3 {
+    font-size: 1.5rem; 
+  }
+
+  h5 {
+    font-size: 1.2rem; 
+  }
+}
+
+
+@media (max-width: 375px) {
+  .tech-icons {
+    gap: 5px; 
+  }
+
+  .tech-icons i {
+    font-size: 1.5rem; 
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
 }

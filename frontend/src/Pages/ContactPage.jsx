@@ -10,9 +10,34 @@ const ContactPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [errors, setErrors] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    let validationErrors = {};
+    let isValid = true;
+    if (!name) {
+      validationErrors.name = "Full name is required.";
+      isValid = false;
+    }
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!email) {
+      validationErrors.email = "Email is required.";
+      isValid = false;
+    } else if (!emailRegex.test(email)) {
+      validationErrors.email = "Please enter a valid email address.";
+      isValid = false;
+    }
+    if (!message) {
+      validationErrors.message = "Message is required.";
+      isValid = false;
+    }
+
+    if (!isValid) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
 
     const userData = {
       name: name,
@@ -48,7 +73,9 @@ const ContactPage = () => {
               placeholder="Enter your name"
               value={name} 
               onChange={(e) => setName(e.target.value)} 
+              
             />
+            {errors.name && <div className="error">{errors.name}</div>}
           </div>
           <div className="detail">
             <label htmlFor="email" className="form-label">Email Address</label>
@@ -60,6 +87,7 @@ const ContactPage = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)} 
             />
+             {errors.email && <div className="error">{errors.email}</div>}
           </div>
           <div className="detail">
             <label htmlFor="message" className="form-label">Message</label>
@@ -71,6 +99,7 @@ const ContactPage = () => {
               value={message} 
               onChange={(e) => setMessage(e.target.value)} 
             ></textarea>
+            {errors.message && <div className="error">{errors.message}</div>}
           </div>
           <button type="submit" className="btn btn-primary w-50">
             Submit
