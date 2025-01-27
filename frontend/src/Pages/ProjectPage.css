@@ -14,6 +14,7 @@
   padding-top: 100px;
 }
 
+
 .styling-card {
   background-color: rgba(30, 30, 30, 0.9) !important;
   border-width: 5px;
@@ -45,6 +46,9 @@
   transform: scale(1.05);
   box-shadow: 0 0 20px #32CD32;
 }
+button{
+  color: #8CC84B;
+}
 
 .myProjects {
   font-weight: bolder;
@@ -66,9 +70,11 @@
   }
 }
 
-.myProjects.typing-done {
-  border-right-color: transparent;
-  border-right: none;
+.myProjectContainer h3{
+  font-size: 1.8rem;
+  color: #8CC84B;
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 375px) {
@@ -76,7 +82,7 @@
     flex-direction: column;
     padding: 10px; 
   }
-
+ 
   .styling-card {
     padding: 15px; 
     width: 100%;

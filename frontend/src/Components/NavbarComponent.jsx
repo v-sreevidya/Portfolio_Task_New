@@ -13,6 +13,7 @@ const NavbarComponent = () => {
         <Nav className="ms-auto">
           <HashLink to="#home-section" className="mx-3 nav-link" activeClassName="active-link">Home</HashLink>
           <HashLink to="#about-section" className="mx-3 nav-link" activeClassName="active-link">About</HashLink>
+          <HashLink to="#skills-section" className="mx-3 nav-link" activeClassName="active-link">Skills</HashLink>
           <HashLink to="#projects-section" className="mx-3 nav-link" activeClassName="active-link">Projects</HashLink>
           <HashLink to="#contact-section" className="mx-3 nav-link" activeClassName="active-link">Contact Me</HashLink>
         </Nav>

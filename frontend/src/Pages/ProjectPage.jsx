@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+
 import { Button, Card, CardGroup } from "react-bootstrap";
 import "./ProjectPage.css";
 import image1 from "./../Assets/Images/grievance.jpeg";
@@ -7,17 +7,10 @@ import iotimg from './../Assets/Images/iot.png';
 import { useNavigate } from "react-router-dom";
 
 const ProjectPage = () => {
-  const [typingDone, setTypingDone] = useState(false);
+  
   
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setTypingDone(true);
-    });
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleNavigate = (id) => {
    
@@ -27,9 +20,9 @@ const ProjectPage = () => {
   return (
     <div className="ProjectPage">
       <div className="myProjectContainer">
-        <p className={`myProjects ${typingDone ? "typing-done" : ""}`}>
+        <h3>
           Projects I've Been Part Of
-        </p>
+        </h3>
       </div>
 
       <CardGroup>
@@ -39,7 +32,15 @@ const ProjectPage = () => {
             <Card.Body>
               <Card.Title>GRIEVANCE MANAGEMENT SYSTEM</Card.Title>
             </Card.Body>
-            <Button onClick={() => handleNavigate('9cbc77eb-da2c-4340-be8f-07bdf4bf0c65')}>Learn More</Button>
+            <Button 
+            style={{
+              backgroundColor: '#8CC84B',
+              color: 'white',
+              border: 'none',
+              padding: '10px 20px',
+              borderRadius: '5px',
+              transition: 'background-color 0.3s ease',
+            }} onClick={() => handleNavigate('4d4df5b8-59e3-4569-8fab-7644bef7234f')} >Learn More</Button>
           </Card>
         </div>
 
@@ -49,7 +50,15 @@ const ProjectPage = () => {
             <Card.Body>
               <Card.Title>IMPLEMENTATION OF MIL-STD-1553B BUS CONTROLLER FOR THE TESTING OF AVIONICS SYSTEMS</Card.Title>
             </Card.Body>
-            <Button onClick={() => handleNavigate('7107c6ad-6346-48df-8bde-8d63991f90e1')}>Learn More</Button>
+            <Button 
+             style={{
+              backgroundColor: '#8CC84B',
+              color: 'white',
+              border: 'none',
+              padding: '10px 20px',
+              borderRadius: '5px',
+              transition: 'background-color 0.3s ease',
+            }}onClick={() => handleNavigate('5baa092c-48d1-496b-95c1-a59852e2265d')}>Learn More</Button>
           </Card>
         </div>
 
@@ -59,7 +68,15 @@ const ProjectPage = () => {
             <Card.Body>
               <Card.Title>IoT BASED ELECTRICAL DEVICE CONTROL SYSTEM</Card.Title>
             </Card.Body>
-            <Button onClick={() => handleNavigate('5e4fb7dd-b3c1-4756-a8f3-65cf1d5d4116')}>Learn More</Button>
+            <Button 
+             style={{
+              backgroundColor: '#8CC84B',
+              color: 'white',
+              border: 'none',
+              padding: '10px 20px',
+              borderRadius: '5px',
+              transition: 'background-color 0.3s ease',
+            }}onClick={() => handleNavigate('9cdb25a3-6263-4ae3-a35a-3f85de40e7be')}>Learn More</Button>
           </Card>
         </div>
       </CardGroup>

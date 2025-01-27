@@ -4,6 +4,7 @@ import HomeSectionPage from "./HomeSectionPage";
 import AboutPage from "./AboutPage";
 import ProjectsPage from "./ProjectPage";
 import ContactPage from "./ContactPage";
+import Skills from "./Skills"
 
 const HomePage = () => {
   return (
@@ -14,6 +15,9 @@ const HomePage = () => {
 
       <section id="about-section" className="about-section">
         <AboutPage />
+      </section>
+      <section id="skills-section" className="skills-section">
+        <Skills />
       </section>
 
       <section id="projects-section" className="projects-section">

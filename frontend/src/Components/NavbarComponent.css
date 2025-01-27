@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth; 
+}
+
 .NavbarComponent {
   background-color: black !important;
 }
@@ -13,46 +17,49 @@
   color: #39FF14 !important;
 }
 
-.NavbarComponent .nav-link.active,
-.NavbarComponent .navbar-brand.active {
-  color: #39FF14 !important;
+.NavbarComponent .nav-link.active-link,
+.NavbarComponent .navbar-brand.active-link {
+  color: #39FF14 !important; /* Active link color */
 }
 
 .NavbarComponent .nav-link:focus,
 .NavbarComponent .nav-link:active,
 .NavbarComponent .navbar-brand:active,
 .NavbarComponent .navbar-brand:focus {
-  color: white !important;
+  color: #39FF14 !important;
 }
+
+
+.NavbarComponent .navbar-nav .nav-link {
+  cursor: pointer;
+}
+
 @media (max-width: 375px) {
   .NavbarComponent {
-    padding: 10px; 
+    padding: 10px;
   }
 
   .NavbarComponent .navbar-brand {
-    font-size: 1.2rem; 
-    margin-bottom: 15px; 
+    font-size: 1.2rem;
+    margin-bottom: 15px;
   }
 
   .NavbarComponent .nav-link {
-    font-size: 0.9rem; 
-    margin: 5px 0; 
+    font-size: 0.9rem;
+    margin: 5px 0;
   }
 }
 
 @media (max-width: 768px) {
   .NavbarComponent {
-    padding: 10px; 
-    flex-direction: column; 
+    padding: 10px;
+    flex-direction: column;
     align-items: flex-start;
   }
 
   .NavbarComponent .navbar-brand,
   .NavbarComponent .nav-link {
     font-size: 1rem;
-    margin: 10px 0; 
+    margin: 10px 0;
   }
 }
-
-
-

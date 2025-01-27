@@ -12,7 +12,7 @@ const Project1 = () => {
   useEffect(() => {
     const fetchProjectData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/projects/${id}`);
+        const response = await axios.get(`http://localhost:8080/api/projects/get/${id}`);
         setProject(response.data);
         setLoading(false);
       } catch (err) {
@@ -26,7 +26,7 @@ const Project1 = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className='loading'>Loading...</div>;
   }
 
   if (error) {
@@ -52,7 +52,9 @@ const Project1 = () => {
       ) : (
         <div>No image available</div>
       )}
+    
     </div>
+ 
   );
 };
 

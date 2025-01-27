@@ -85,6 +85,7 @@
   }
 }
 
+
 @media (min-width: 768px) {
   .project-details-container {
     padding: 30px;
@@ -127,5 +128,11 @@
   .project-details-container img {
     max-width: 700px; 
   }
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
 }
 
