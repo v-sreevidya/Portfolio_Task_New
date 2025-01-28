@@ -1,39 +1,40 @@
-import React from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import NavbarComponent from "./Components/NavbarComponent";
-import "./App.css";
 import HomePage from "./Pages/HomePage";
-import ProjectPage from "./Pages/ProjectPage";
-import Project1 from "./Pages/Project1";
 
+import Project1 from "./Pages/Project1"; 
+import './App.css';
 
+function ScrollToHash() {
+  const { hash } = useLocation(); 
 
+  useEffect(() => {
+    if (hash) {
+      const element = document.getElementById(hash.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]); 
 
-function Layout() {
-  const location = useLocation();
-  const hideNavbar = location.pathname.includes("/project");
-
-  return (
-    <div>
-      
-      {!hideNavbar && <NavbarComponent />}
-
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        
-
-        <Route path="/projects/:id" element={<Project1 />} />
-      
-        <Route path="/projects" element={<ProjectPage />} />
-      </Routes>
-    </div>
-  );
+  return null;
 }
 
 function App() {
   return (
     <BrowserRouter>
-      <Layout />
+      <NavbarComponent />
+      <ScrollToHash />  
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        
+       
+        <Route path="/projects/:id" element={<Project1 />} />  
+        
+       
+       
+      </Routes>
     </BrowserRouter>
   );
 }

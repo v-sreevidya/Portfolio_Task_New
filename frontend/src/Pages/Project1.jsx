@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import NavbarComponent from '../Components/NavbarComponent';
 import './Project1.css';
 
 const Project1 = () => {
-  const { id } = useParams(); // Get the project id from the URL
+  const { id } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -31,7 +30,6 @@ const Project1 = () => {
 
   return (
     <div className="project-details-container">
-      <NavbarComponent />
       <h2>{project.title}</h2>
       {project.details ? (
         <div className="project-details-text">

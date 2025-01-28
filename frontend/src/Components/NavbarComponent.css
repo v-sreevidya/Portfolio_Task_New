@@ -19,8 +19,9 @@ html {
 
 .NavbarComponent .nav-link.active-link,
 .NavbarComponent .navbar-brand.active-link {
-  color: #39FF14 !important; /* Active link color */
+  color: #39FF14 !important; 
 }
+
 
 .NavbarComponent .nav-link:focus,
 .NavbarComponent .nav-link:active,

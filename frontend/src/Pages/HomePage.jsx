@@ -4,11 +4,16 @@ import HomeSectionPage from "./HomeSectionPage";
 import AboutPage from "./AboutPage";
 import ProjectsPage from "./ProjectPage";
 import ContactPage from "./ContactPage";
-import Skills from "./Skills"
+import Skills from "./Skills";
 
 const HomePage = () => {
   return (
     <div className="scrollable-container">
+       <nav className="navbar">
+        
+         
+        
+      </nav>
       <section id="home-section" className="home-section">
         <HomeSectionPage />
       </section>
@@ -16,6 +21,7 @@ const HomePage = () => {
       <section id="about-section" className="about-section">
         <AboutPage />
       </section>
+
       <section id="skills-section" className="skills-section">
         <Skills />
       </section>
