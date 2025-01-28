@@ -27,16 +27,19 @@ const Skills = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="skill-card-container">
-      {skills.length > 0 ? (
-        skills.map((skill) => (
-          <div key={skill.id} className="skill-card">
-            <p className="skill-title">{skill.title}</p> 
-          </div>
-        ))
-      ) : (
-        <div>No skills available</div>
-      )}
+    <div className="skills-container">
+      <h1 className="skills-heading">Skills</h1> {/* Heading for skills */}
+      <div className="skill-card-container">
+        {skills.length > 0 ? (
+          skills.map((skill) => (
+            <div key={skill.id} className="skill-card">
+              <p className="skill-title">{skill.title}</p> 
+            </div>
+          ))
+        ) : (
+          <div>No skills available</div>
+        )}
+      </div>
     </div>
   );
 };

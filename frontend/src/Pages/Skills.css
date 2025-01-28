@@ -1,40 +1,81 @@
+.skills-container {
+  background-color: black;
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills-heading {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 2px;
+}
 
 .skill-card-container {
-  display: grid;
-  margin-top: 100px;
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 50px;
-  padding: 20px;
-  background-color: black;
-  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
 }
 
-/* Individual skill card */
 .skill-card {
-  
+  background-color: rgb(106, 109, 101);
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 200px;
-  padding: 50px;
-  gap: 50px;
-  background: rgb(106, 109, 101);
- 
-  border-radius: 10px;
-  
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* Hover effect for skill card */
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Skill title styling */
-.skill-title {
-  font-size: 1.2rem;
+.skill-card .skill-title {
+  color: white;
+  font-size: 1.5rem;
   font-weight: bold;
-  text-align: center;
-  color: whitesmoke;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .skills-heading {
+    font-size: 1.5rem;
+  }
+
+  .skill-card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-card {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .skill-card .skill-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .skills-heading {
+    font-size: 1.8rem;
+  }
+
+  .skill-card {
+    width: 250px;
+    height: 200px;
+  }
 }

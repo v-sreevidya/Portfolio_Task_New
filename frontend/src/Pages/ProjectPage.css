@@ -1,105 +1,78 @@
-
 .project-page-container {
-  background-color: black; 
+  background-color: black;
   padding: 40px 0;
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
+}
+
+.heading {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .projects-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
   gap: 20px;
-  width: 100%; 
-  max-width: 1200px; 
+  width: 100%;
+  max-width: 1200px;
 }
 
 .styling-card {
-  
-  background-color: rgb(106, 109, 101); 
+  background-color: rgb(106, 109, 101);
   border-radius: 8px;
   padding: 20px;
-  width: 300px; 
-  height: 250px; 
+  width: 300px;
+  height: 250px;
   text-align: center;
   display: flex;
-  
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.2s, box-shadow 0.2s;
-   
   margin-bottom: 20px;
 }
-.name {
-  text-align: center;
-  color: white ;
-  font-size: 2.3rem;
-  font-weight: bold;
-  margin-bottom: 30px; 
-  text-transform: uppercase; 
-  letter-spacing: 2px; 
-  
-}
+
 .styling-card .card-title {
-  color: white; 
+  color: white;
   font-size: 1.3rem;
-  
   font-weight: bold;
-  margin-top: 10px; 
-  text-align: center; 
+  margin-top: 10px;
+  text-align: center;
 }
+
 .styling-card a {
-  text-decoration: none; 
+  text-decoration: none;
 }
+
 .styling-card:hover {
-  transform: scale(1.05); 
-  
+  transform: scale(1.05);
 }
-
 
 @media (max-width: 768px) {
   .projects-container {
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
 
   .styling-card {
     width: 80%;
-    max-width: 300px; 
+    max-width: 300px;
   }
 
   .styling-card .card-title {
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
   }
 
   .styling-card .card-image {
-    height: 150px; 
-  }
-}
-
-
-@media (max-width: 768px) {
-  .projects-container {
-    flex-direction: column; 
-    align-items: center;
-  }
-
-  .styling-card {
-    width: 80%;
-    max-width: 300px; 
-  }
-
-  .styling-card .card-title {
-    font-size: 1.4rem; 
-  }
-
-  .styling-card .card-image {
-    height: 150px; 
+    height: 150px;
   }
 }
 
@@ -107,11 +80,9 @@
   .projects-container {
     flex-direction: row;
     justify-content: center;
-    
   }
 
   .styling-card {
     width: 300px;
-    
   }
 }

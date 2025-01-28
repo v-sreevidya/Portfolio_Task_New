@@ -1,21 +1,24 @@
+/* Default style for .tech-icons */
 .tech-icons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
+  justify-content: center;
   text-align: center;
-  gap: 10px; 
+  gap: 10px;
   margin-top: 20px;
 }
 
+/* Icons and hover effect */
 .tech-icons i {
-  font-size: 2rem; 
-  transition: transform 0.2s ease; 
+  font-size: 2rem;
+  transition: transform 0.2s ease;
 }
 
 .tech-icons i:hover {
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
 
+/* Individual icon colors */
 .tech-icons .fa-react {
   color: #61DBFB;
 }
@@ -44,46 +47,47 @@
   color: #007396;
 }
 
+/* General heading styles */
 h1, h3, h5 {
   color: white;
-  font-size:1.5rem  ;
-  text-shadow: 0 0 10px rgba(57, 255, 20, 0.7); 
- 
- align-items: center;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+  align-items: center;
 }
 
-
+/* Media Query for devices max-width 768px (Tablets and Small Screens) */
 @media (max-width: 768px) {
   .tech-icons {
-    justify-content: center; 
-    gap: 8px; 
+    justify-content: space-around; /* Adjust icons' spacing */
+    gap: 8px;
   }
 
   .tech-icons i {
-    font-size: 1.8rem; 
+    font-size: 1.8rem;
   }
 
   h1 {
-    font-size: 2rem; 
+    font-size: 2rem;
   }
 
   h3 {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 
   h5 {
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
   }
 }
 
-
+/* Media Query for devices max-width 375px (Mobile) */
 @media (max-width: 375px) {
   .tech-icons {
-    gap: 5px; 
+    gap: 5px; /* Reduce gap */
+    justify-content: space-between; /* Distribute icons evenly */
   }
 
   .tech-icons i {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 
   h1 {

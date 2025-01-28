@@ -30,7 +30,9 @@ const ProjectPage = () => {
   if (error) return <p>{error}</p>;
 
   return (
+    
     <div className="project-page-container">
+      <p className="heading">Projects</p>
       <div className="projects-container">
         {projects.length > 0 ? (
           projects.map((project) => (
