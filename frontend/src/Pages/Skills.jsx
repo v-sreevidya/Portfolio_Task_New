@@ -1,53 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './Skills.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faHtml5, faCss3Alt, faJsSquare, faNode, faGit, faGithub, faJava } from '@fortawesome/free-brands-svg-icons';
 
-const SkillsPage = () => {
+const Skills = () => {
+  const [skills, setSkills] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchSkillsData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/skills/get');
+        setSkills(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching skills data:", err);
+        setError("Error loading skills data");
+        setLoading(false);
+      }
+    };
+
+    fetchSkillsData();
+  }, []);
+
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div>{error}</div>;
+
   return (
-    <div className="skills-page">
-      
-      <div className="skills-container">
-        <div className="technical-skills">
-          <h3>Technical Skills</h3>
-          <div className="skills">
-            <div className="skill-item">
-              <FontAwesomeIcon icon={faReact} size="5x" />
-              <p>React</p>
-            </div>
-            <div className="skill-item">
-              <FontAwesomeIcon icon={faHtml5} size="5x" />
-              <p>HTML5</p>
-            </div>
-            <div className="skill-item">
-              <FontAwesomeIcon icon={faCss3Alt} size="5x" />
-              <p>CSS3</p>
-            </div>
-            <div className="skill-item">
-              <FontAwesomeIcon icon={faJsSquare} size="5x" />
-              <p>JavaScript</p>
-            </div>
-            <div className="skill-item">
-              <FontAwesomeIcon icon={faNode} size="5x" />
-              <p>Node.js</p>
-            </div>
-            <div className="skill-item">
-              <FontAwesomeIcon icon={faGit} size="5x" />
-              <p>Git</p>
-            </div>
-            <div className="skill-item">
-              <FontAwesomeIcon icon={faGithub} size="5x" />
-              <p>GitHub</p>
-            </div>
-            <div className="skill-item">
-              <FontAwesomeIcon icon={faJava} size="5x" />
-              <p>Java</p>
-            </div>
+    <div className="skill-card-container">
+      {skills.length > 0 ? (
+        skills.map((skill) => (
+          <div key={skill.id} className="skill-card">
+            <p className="skill-title">{skill.title}</p> 
           </div>
-        </div>
-      </div>
+        ))
+      ) : (
+        <div>No skills available</div>
+      )}
     </div>
   );
 };
 
-export default SkillsPage;
+export default Skills;

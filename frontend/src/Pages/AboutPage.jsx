@@ -1,13 +1,34 @@
-import React from "react";
-import './AboutPage.css';
-import profileimg from './../Assets/Images/Anna.jpeg';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import profileimg from "./../Assets/Images/Anna.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { faBusinessTime } from "@fortawesome/free-solid-svg-icons";
+import './AboutPage.css';
 
 const AboutPage = () => {
+  const [educations, setEducations] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetching education data from the backend
+  useEffect(() => {
+    const fetchEducationsData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/api/educations/get');
+        setEducations(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error("Error fetching education data:", err);
+        setError("Error loading education data");
+        setLoading(false);
+      }
+    };
+
+    fetchEducationsData();
+  }, []);
+
   return (
-   
     <div className="container my-5">
       <div className="row align-items-center mb-4">
         <div className="col-md-5">
@@ -19,34 +40,30 @@ const AboutPage = () => {
             and user-friendly applications. I'm a proactive, dedicated, and disciplined individual, 
             who focuses on continuous improvement through adaptability and creativity. 
           </p>
-          <div className="row">
-        <div className="col-10">
-          
           <div className="education-container">
-          <div className="education-item">
-              <FontAwesomeIcon icon={faBusinessTime} className="education-icon" />
-              <p className="education-title">Tarento</p>
-              <p className="education-year">Associate Software Engineer (Trainee)</p>
-            </div>
-            <div className="education-item">
-              <FontAwesomeIcon icon={faGraduationCap} className="education-icon" />
-              <p className="education-title">B.Tech in ECE</p>
-              <p className="education-year">NSS College of Engineering (2020 - 2024)</p>
-            </div>
-            <div className="education-item">
-              <FontAwesomeIcon icon={faGraduationCap} className="education-icon" />
-              <p className="education-title">High School</p>
-              <p className="education-year">Kendriya Vidyalaya Kanjikode (2017 - 2019)</p>
-            </div>
+            {loading ? (
+              <div className="loading">Loading...</div>
+            ) : error ? (
+              <div>{error}</div>
+            ) : (
+              educations.length > 0 ? (
+                educations.map((education) => (
+                  <div key={education.id} className="education-item">
+                    <FontAwesomeIcon icon={faBusinessTime} className="education-icon" />
+                    <p className="education-title">{education.title}</p>
+                    <p className="education-year">{education.year}</p>
+                    <p className="education-institution">{education.institution}</p>
+                    <p className="education-type">{education.type}</p>
+                  </div>
+                ))
+              ) : (
+                <div>No education data available</div>
+              )
+            )}
           </div>
         </div>
       </div>
-        </div>
-      </div>
-
-     
     </div>
-   
   );
 };
 
