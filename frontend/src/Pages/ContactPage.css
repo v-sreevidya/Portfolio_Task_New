@@ -1,6 +1,6 @@
 .detail{
     background-color: #2A2A2A;
-    border: 1px solid #39FF14;
+    border: 1px solid #2f8d2f;
     color: #CFCFCF;
     padding: 10px;
     border-radius: 5px;
@@ -10,10 +10,11 @@
 }
 
 .btn-primary[type="submit"]{
-    background-color: #4CAF50;
+    background-color: rgb(106, 109, 101);
+    
     color: #FFFFFF;
     padding: 10px 20px;
-    border: none;
+    border: 1px solid #2f8d2f;
     width: 50%;
 }
 
@@ -30,7 +31,8 @@
     align-items: left;
     margin-bottom: 2rem;
     font-size: 1.8rem;
-    color: #8CC84B;;
+    color: white;
+    color: rgb(106, 109, 101);
 
     
 }
@@ -67,6 +69,7 @@
 .text-center{
     margin-top: 1.5rem;
     margin-bottom: 2rem;
+    color: white;
 }
 
 .social-icons{

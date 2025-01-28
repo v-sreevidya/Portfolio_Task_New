@@ -12,7 +12,9 @@ const ProjectPage = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get("http://localhost:8080/api/projects/get");
-        setProjects(response.data);
+        console.log("API Response Data:", response.data); // Check what data you're receiving
+        // Ensure response.data is an array
+        setProjects(Array.isArray(response.data) ? response.data : []);
         setIsLoading(false);
       } catch (err) {
         console.error("Error fetching projects:", err);
@@ -28,19 +30,20 @@ const ProjectPage = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    
     <div className="project-page-container">
-     
-    <div className="projects-container">
-      {projects.map((project) => (
-        <div key={project.id} className="styling-card">
-          <Link to={`/projects/${project.id}`}>
-            <h2 className="card-title">{project.title}</h2>
-          </Link>
-        </div>
-        
-      ))}
-    </div>
+      <div className="projects-container">
+        {projects.length > 0 ? (
+          projects.map((project) => (
+            <div key={project.id} className="styling-card">
+              <Link to={`/projects/${project.id}`}>
+                <h2 className="card-title">{project.title}</h2>
+              </Link>
+            </div>
+          ))
+        ) : (
+          <p>No projects available.</p>
+        )}
+      </div>
     </div>
   );
 };

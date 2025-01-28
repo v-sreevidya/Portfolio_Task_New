@@ -10,17 +10,17 @@
 }
 
 .project-details-container h2 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   margin-top: 50px;
   margin-bottom: 30px;
-  color: #32CD32; 
+  color: #289b28; 
   text-align: center;
   text-transform: uppercase; 
   letter-spacing: 2px;
 }
 
 .project-details-container div {
-  color: #CFCFCF; 
+  color: white; 
   font-size: 1.3rem;
   text-align: justify; 
   margin-top: 20px;
@@ -55,11 +55,11 @@
 
 
 .project-details-text {
-  background-color: #2a2a2a; 
+  background-color: rgb(106, 109, 101); 
   padding: 30px;
   border-radius: 12px;
   margin-bottom: 30px;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: white; 
   line-height: 1.8;
   
@@ -93,7 +93,7 @@
   }
 
   .project-details-container h2 {
-    font-size: 2.6rem;
+    font-size: 2.3rem;
   }
 
   .project-details-container div {
@@ -113,7 +113,8 @@
   }
 
   .project-details-container h2 {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
+    padding: 50px;
   }
 
   .project-details-container div {
