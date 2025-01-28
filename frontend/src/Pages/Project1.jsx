@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import NavbarComponent from '../Components/NavbarComponent';
 import './Project1.css';
 
 const Project1 = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // Get the project id from the URL
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,8 +17,8 @@ const Project1 = () => {
         setProject(response.data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching project data:', err);
-        setError('Error loading project data');
+        console.error("Error fetching project data:", err);
+        setError("Error loading project data");
         setLoading(false);
       }
     };
@@ -25,36 +26,30 @@ const Project1 = () => {
     fetchProjectData();
   }, [id]);
 
-  if (loading) {
-    return <div className='loading'>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
+  if (loading) return <div className="loading">Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   return (
     <div className="project-details-container">
+      <NavbarComponent />
       <h2>{project.title}</h2>
       {project.details ? (
         <div className="project-details-text">
-          <p>{project.details}</p> 
+          <p>{project.details}</p>
         </div>
       ) : (
         <div>No details available</div>
       )}
       {project.image ? (
         <img
-          src={`data:image/jpeg;base64,${project.image}`} 
+          src={`data:image/jpeg;base64,${project.image}`}
           alt={project.title}
           className="project-image"
         />
       ) : (
         <div>No image available</div>
       )}
-    
     </div>
- 
   );
 };
 

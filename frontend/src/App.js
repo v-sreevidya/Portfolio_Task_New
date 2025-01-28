@@ -20,6 +20,8 @@ function Layout() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        
+
         <Route path="/projects/:id" element={<Project1 />} />
       
         <Route path="/projects" element={<ProjectPage />} />
