@@ -10,7 +10,7 @@
 }
 
 .btn-primary[type="submit"]{
-    background-color: rgb(106, 109, 101);
+    background-color: rgb(99, 116, 69);
     
     color: #FFFFFF;
     padding: 10px 20px;
@@ -30,9 +30,9 @@
     justify-content: center;
     align-items: left;
     margin-bottom: 2rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: white;
-    color: rgb(106, 109, 101);
+    color: rgb(99, 116, 69);
 
     
 }

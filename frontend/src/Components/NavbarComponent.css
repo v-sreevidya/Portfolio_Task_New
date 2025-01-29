@@ -110,8 +110,8 @@ html {
   }
 
   .NavbarComponent .navbar-brand {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    font-size: 1rem;
+    margin-bottom: 10px;
   }
 
   .NavbarComponent .nav-link {
@@ -126,7 +126,7 @@ html {
   }
 
   .NavbarComponent .navbar-brand {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .NavbarComponent .nav-link {
@@ -152,7 +152,7 @@ html {
   }
 
   .NavbarComponent .nav-link {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 5px;
   }
 
@@ -172,11 +172,11 @@ html {
   }
 
   .NavbarComponent .navbar-brand {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .NavbarComponent .nav-link {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 
@@ -198,7 +198,7 @@ html {
   }
 
   .NavbarComponent .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .NavbarComponent .nav-link {
@@ -212,7 +212,7 @@ html {
   }
 
   .NavbarComponent .navbar-brand {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .NavbarComponent .nav-link {
@@ -240,7 +240,7 @@ html {
   }
 
   .NavbarComponent .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .NavbarComponent .nav-link {
@@ -254,7 +254,7 @@ html {
   }
 
   .NavbarComponent .navbar-brand {
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
 
   .NavbarComponent .nav-link {

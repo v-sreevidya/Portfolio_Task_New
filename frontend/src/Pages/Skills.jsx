@@ -33,7 +33,12 @@ const Skills = () => {
         {skills.length > 0 ? (
           skills.map((skill) => (
             <div key={skill.id} className="skill-card">
-              <p className="skill-title">{skill.title}</p> 
+              {/* Display Base64-encoded image */}
+              <img 
+                src={`data:image/jpeg;base64,${skill.image}`} 
+                alt={`Skill ${skill.id}`} 
+                className="skill-image" 
+              />
             </div>
           ))
         ) : (
