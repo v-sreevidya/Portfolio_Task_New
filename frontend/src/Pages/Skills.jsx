@@ -25,7 +25,7 @@ const Skills = () => {
 
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div>{error}</div>;
-
+const fall ='public/skills.jpeg'
   return (
     <div className="skills-container">
       <h1 className="skills-heading">Skills</h1> {/* Heading for skills */}
@@ -38,6 +38,7 @@ const Skills = () => {
                 src={`data:image/jpeg;base64,${skill.image}`} 
                 alt={`Skill ${skill.id}`} 
                 className="skill-image" 
+                onError={(e)=>(e.target.src=fall)}
               />
             </div>
           ))

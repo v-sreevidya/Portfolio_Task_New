@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faHtml5, faCss3Alt, faJsSquare, faNode, faGit, faGithub, faJava } from '@fortawesome/free-brands-svg-icons';
-import './HomeSectionPage.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faReact,
+  faHtml5,
+  faCss3Alt,
+  faJsSquare,
+  faNode,
+  faGit,
+  faGithub,
+  faJava,
+} from "@fortawesome/free-brands-svg-icons";
+import "./HomeSectionPage.css";
 
 const HomeSectionPage = () => {
   const [typingDone, setTypingDone] = useState(false);

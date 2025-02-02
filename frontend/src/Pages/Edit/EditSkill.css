@@ -1,0 +1,110 @@
+/* General Container Styling */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* Edit Skill Container */
+.edit-skill-container {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2A2A2A;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 4px 10px rgba(0, 255, 0, 0.2);
+}
+
+/* Heading */
+.edit-skill-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+/* Input Fields */
+input[type="text"], input[type="file"] {
+    padding: 10px;
+    font-size: 1rem;
+    
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+}
+
+/* Image Preview */
+.image-preview {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+   
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-preview:hover {
+    transform: scale(1.05);
+}
+
+/* Error Messages */
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Save Button */
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .edit-skill-container {
+        max-width: 90%;
+        padding: 1rem;
+    }
+
+    input[type="text"], input[type="file"] {
+        font-size: 0.9rem;
+    }
+
+    .save-btn {
+        font-size: 0.9rem;
+    }
+}

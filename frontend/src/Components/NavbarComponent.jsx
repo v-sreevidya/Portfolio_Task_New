@@ -26,6 +26,9 @@ const NavbarComponent = () => {
                 <Link to="/#projects-section" className="mx-3 nav-link">Projects</Link>
               )}
               <HashLink to="#contact-section" className="mx-3 nav-link" activeClassName="active-link">Contact Me</HashLink>
+              <a href="/admin" target="_blank" rel="noopener noreferrer">
+        Admin
+      </a>
             </Nav>
           </Navbar.Collapse>
         </Container>

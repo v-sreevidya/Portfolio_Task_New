@@ -1,0 +1,39 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.list-group-item {
+    background: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.list-group-item:hover {
+    background: #7279dd;
+}
+
+
+button.list-group-item {
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}

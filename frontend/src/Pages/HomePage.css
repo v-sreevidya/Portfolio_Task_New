@@ -23,7 +23,7 @@ section h1 {
   text-align: center; 
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 375px) {
   section {
     padding: 10px;
@@ -53,7 +53,7 @@ section h1 {
   }
 }
 
-/* For larger devices (laptops, desktops) */
+
 @media (min-width: 1024px) {
   section {
     padding: 30px;

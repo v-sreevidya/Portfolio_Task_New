@@ -6,6 +6,7 @@ import ProjectsPage from "./ProjectPage";
 import ContactPage from "./ContactPage";
 import Skills from "./Skills";
 
+
 const HomePage = () => {
   return (
     <div className="scrollable-container">
@@ -33,6 +34,7 @@ const HomePage = () => {
       <section id="contact-section" className="contact-section">
         <ContactPage />
       </section>
+    
     </div>
   );
 };

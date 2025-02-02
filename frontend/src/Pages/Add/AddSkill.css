@@ -1,0 +1,105 @@
+/* Add Skill Page Container */
+.add-skill-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    color: white;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Title */
+.add-skill-container h2 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #f8f9fa;
+    margin-top: 3rem;
+}
+
+/* Form Styling */
+form {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+   
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Input Fields */
+label {
+    font-size: 16px;
+    color: #f8f9fa;
+    font-weight: bold;
+    
+}
+
+input[type="text"], input[type="file"] {
+    padding: 10px;
+    margin-top: 8px;
+    margin-left: 12px;
+    font-size: 16px;
+    background-color: #444;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #f8f9fa;
+}
+
+input[type="text"]:focus, input[type="file"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Image Name Styling */
+.image-name {
+    font-size: 14px;
+    color: #bbb;
+    margin-top: 5px;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .add-skill-container {
+        padding: 15px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"], input[type="file"], button[type="submit"] {
+        font-size: 14px;
+    }
+}
