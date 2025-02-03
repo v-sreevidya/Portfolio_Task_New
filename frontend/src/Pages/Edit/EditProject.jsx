@@ -3,24 +3,35 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2"; 
 import Sidebar from "../../Components/Sidebar";
-import "./EditSkill.css";
+import "./EditProject.css";
 
-const EditSkill = () => {
+const EditProject = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    
     const [title, setTitle] = useState("");
+    const [details, setDetails] = useState("");
     const [image, setImage] = useState(null);
     const [imagePreview, setImagePreview] = useState("");
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/api/skills/get/${id}`)
+        axios.get(`http://localhost:8080/api/projects/get/${id}`)
             .then(response => {
                 setTitle(response.data.title);
-                setImagePreview(`data:image/jpeg;base64,${response.data.image}`);
+                setDetails(response.data.details);
+                if (response.data.image) {
+                    setImagePreview(`data:image/jpeg;base64,${response.data.image}`);
+                }
             })
             .catch(error => {
-                console.error("Error fetching skill details:", error);
+                console.error("Error fetching project details:", error);
+                Swal.fire({
+                    title: "Error!",
+                    text: "Failed to fetch project details.",
+                    icon: "error",
+                    confirmButtonText: "OK",
+                });
             });
     }, [id]);
 
@@ -28,21 +39,22 @@ const EditSkill = () => {
     const validateForm = () => {
         let newErrors = {};
 
-        if (!title.trim()) {
-            newErrors.title = "Title is required";
-        }
-
-        if (!image && !imagePreview) {
-            newErrors.image = "Image is required";
-        }
+        if (!title.trim()) newErrors.title = "Title is required";
+        if (!details.trim()) newErrors.details = "Details are required";
+        if (!image && !imagePreview) newErrors.image = "Image is required";
 
         setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+        return Object.keys(newErrors).length === 0; 
     };
 
     const handleTitleChange = (e) => {
         setTitle(e.target.value);
         setErrors((prevErrors) => ({ ...prevErrors, title: e.target.value.trim() ? "" : "Title is required" }));
+    };
+
+    const handleDetailsChange = (e) => {
+        setDetails(e.target.value);
+        setErrors((prevErrors) => ({ ...prevErrors, details: e.target.value.trim() ? "" : "Details are required" }));
     };
 
     const handleImageChange = (e) => {
@@ -51,9 +63,7 @@ const EditSkill = () => {
 
         if (file) {
             const fileReader = new FileReader();
-            fileReader.onloadend = () => {
-                setImagePreview(fileReader.result);
-            };
+            fileReader.onloadend = () => setImagePreview(fileReader.result);
             fileReader.readAsDataURL(file);
             setErrors((prevErrors) => ({ ...prevErrors, image: "" }));
         } else {
@@ -64,40 +74,32 @@ const EditSkill = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
 
-        if (!validateForm()) return;
+        if (!validateForm()) return; 
 
         const formData = new FormData();
         formData.append("title", title);
-
-        if (image) {
-            formData.append("image", image);
-        }
+        formData.append("details", details);
+        if (image) formData.append("image", image);
 
         try {
-            await axios.put(`http://localhost:8080/api/skills/put/${id}`, formData, {
+            await axios.put(`http://localhost:8080/api/projects/${id}`, formData, {
                 headers: { "Content-Type": "multipart/form-data" }
             });
 
-           
             Swal.fire({
                 title: "Success!",
-                text: "Skill updated successfully!",
+                text: "Project updated successfully!",
                 icon: "success",
-                confirmButtonText: "OK",
                 timer: 2500,
-                showConfirmButton: false
+                showConfirmButton: false,
             });
 
-            setTimeout(() => {
-                navigate("/admin/skills");
-            }, 2600); 
+            setTimeout(() => navigate("/admin/projects"), 2600);
         } catch (error) {
-            console.error("Error updating skill:", error);
-
-            
+            console.error("Error updating project:", error);
             Swal.fire({
                 title: "Error!",
-                text: "Failed to update skill. Please try again.",
+                text: "Failed to update project. Please try again.",
                 icon: "error",
                 confirmButtonText: "OK",
             });
@@ -107,8 +109,8 @@ const EditSkill = () => {
     return (
         <div className="admin-container">
             <Sidebar />
-            <div className="edit-skill-container">
-                <h2>Edit Skill</h2>
+            <div className="edit-project-container">
+                <h2>Edit Project</h2>
                 <form onSubmit={handleUpdate}>
                     <label>Title:</label>
                     <input
@@ -119,13 +121,17 @@ const EditSkill = () => {
                     />
                     {errors.title && <p className="error-message">{errors.title}</p>}
 
-                    <label>Image:</label>
-                    {imagePreview && <img src={imagePreview} alt="Skill Preview" className="image-preview" />}
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageChange}
+                    <label>Details:</label>
+                    <textarea
+                        value={details}
+                        onChange={handleDetailsChange}
+                        required
                     />
+                    {errors.details && <p className="error-message">{errors.details}</p>}
+
+                    <label>Image:</label>
+                    {imagePreview && <img src={imagePreview} alt="Project Preview" className="image-preview" />}
+                    <input type="file" accept="image/*" onChange={handleImageChange} />
                     {errors.image && <p className="error-message">{errors.image}</p>}
 
                     <button type="submit" className="save-btn">Save Changes</button>
@@ -135,4 +141,4 @@ const EditSkill = () => {
     );
 };
 
-export default EditSkill;
+export default EditProject;

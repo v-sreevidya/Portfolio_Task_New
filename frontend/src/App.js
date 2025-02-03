@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from "./Components/NavbarComponent";
@@ -11,86 +11,70 @@ import AdminSkills from "./Pages/Admin/AdminSkills";
 import Sidebar from "./Components/Sidebar";
 import EditSkill from "./Pages/Edit/EditSkill";
 import AddSkill from "./Pages/Add/AddSkill";
-
+import AdminProjects from "./Pages/Admin/AdminProjects";
+import AddProject from "./Pages/Add/AddProject";
+import EditProject from "./Pages/Edit/EditProject";
+import { useAuth } from "./Pages/Authentication";
 import './App.css';
+import { AuthProvider } from "./Pages/Authentication";
+import ProtectedRoute from "./Pages/Admin/ProtectedRoute";
+import AdminEducation from "./Pages/Admin/AdminEducation";
+import AddEducation from "./Pages/Add/AddEducation";
+import EditEducation from "./Pages/Edit/EditEducation";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    localStorage.getItem("isAuthenticated") === "true"
-  );
-
-  // Listen for changes in authentication status
-  useEffect(() => {
-    const handleStorageChange = () => {
-      setIsAuthenticated(localStorage.getItem("isAuthenticated") === "true");
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Main Portfolio Routes */}
-        <Route
-          path="/"
-          element={
-            <>
-              <NavbarComponent />
-              <HomePage />
-            </>
-          }
-        />
-        <Route
-          path="/skills/:id"
-          element={
-            <>
-              <NavbarComponent />
-              <Skills />
-            </>
-          }
-        />
-        <Route
-          path="/projects/:id"
-          element={
-            <>
-              <NavbarComponent />
-              <Project1 />
-            </>
-          }
-        />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Portfolio Routes */}
+          <Route path="/" element={<><NavbarComponent /><HomePage /></>} />
+          <Route path="/skills/:id" element={<><NavbarComponent /><Skills /></>} />
+          <Route path="/projects/:id" element={<><NavbarComponent /><Project1 /></>} />
 
-        {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLogin />} />
-        <Route
-          path="/admin/dashboard"
-          element={isAuthenticated ? (
-            <>
-              <Sidebar />
-              <AdminDashboard />
-            </>
-          ) : (
-            <Navigate to="/admin" />
-          )}
-        />
-        <Route
-          path="/admin/skills"
-          element={isAuthenticated ? (
-            <>
-              <Sidebar />
-              <AdminSkills />
-            </>
-          ) : (
-            <Navigate to="/admin" />
-          )}
-        />
-        <Route path="/admin/skills/edit/:id" element={<EditSkill />} />
-        <Route path="/admin/skills/add" element={<AddSkill />} />
-      </Routes>
-    </BrowserRouter>
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route
+            path="/admin/dashboard"
+            element={<ProtectedRoute component={AdminDashboard} />}
+          />
+          <Route
+            path="/admin/skills"
+            element={<ProtectedRoute component={AdminSkills} />}
+          />
+          <Route
+            path="/admin/projects"
+            element={<ProtectedRoute component={AdminProjects} />}
+          />
+          <Route path="/admin/skills/edit/:id" element={<div className="admin-container">
+            <Sidebar />
+            <EditSkill /> </div>} />
+          <Route path="/admin/skills/add" element={<div className="admin-container">
+            <Sidebar />
+            <AddSkill /> </div>} />
+          <Route path="/admin/projects/add" element={ <div className="admin-container">
+            <Sidebar />
+            <AddProject />
+          </div>} />
+          <Route path="/admin/projects/edit/:id" element={ <div className="admin-container">
+            <Sidebar />
+            <EditProject />
+          </div>} />
+          <Route path="/admin/education" element={ <div className="admin-container">
+            <Sidebar />
+            <AdminEducation />
+          </div>} />
+          <Route path="/admin/education/add" element={ <div className="admin-container">
+            <Sidebar />
+            <AddEducation />
+          </div>} />
+          <Route path="/admin/education/edit/:id" element={ <div className="admin-container">
+            <Sidebar />
+            <EditEducation />
+          </div>} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

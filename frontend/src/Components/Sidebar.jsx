@@ -7,12 +7,8 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
            
-            <div className="sidebar-header">
-                <i className="bi bi-person-circle me-2 fs-4"></i>
-                <span className="brand-name">Sreevidya V</span>
-            </div>
 
-            <hr className="text-light" />
+            
 
             
             <div className="list-group list-group-flush">
@@ -27,6 +23,9 @@ const Sidebar = () => {
                 </Link>
                 <Link to="/admin/education" className="list-group-item list-group-item-action">
                     <i className="bi bi-mortarboard me-2"></i> Education
+                </Link>
+                <Link to="/admin/user" className="list-group-item list-group-item-action">
+                    <i className="bi bi-mortarboard me-2"></i> Add Users
                 </Link>
                 <button className="list-group-item list-group-item-action" onClick={() => handleLogout()}>
                     <i className="bi bi-box-arrow-right me-2"></i> Logout

@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./AdminLogin.css"; // Custom styles if needed
+import { useAuth } from "../Authentication";
 
 const AdminLogin = () => {
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    const isAuthenticated = localStorage.getItem("isAuthenticated");
-    if (isAuthenticated) {
-      navigate("/admin/dashboard"); 
-    }
-  }, [navigate]);
+  // If the user is already authenticated, redirect them to the dashboard.
+  if (isAuthenticated) {
+    return <Navigate to="/admin/dashboard" />;
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError("");
 
-    const credentials = btoa(`${username}:${password}`); 
+    const credentials = btoa(`${username}:${password}`);
 
     try {
       const response = await axios.post(
@@ -34,14 +33,14 @@ const AdminLogin = () => {
       );
 
       if (response.status === 200) {
-        
+        setIsAuthenticated(true);
         localStorage.setItem("isAuthenticated", "true");
-        navigate("/admin/dashboard"); 
+        navigate("/admin/dashboard");
       }
     } catch (err) {
       setError("Invalid credentials. Please try again.");
+      localStorage.setItem("isAuthenticated", "false");
     }
-    
   };
 
   return (
@@ -49,7 +48,6 @@ const AdminLogin = () => {
       <div className="card p-4 shadow-sm" style={{ width: "400px" }}>
         <h2 className="text-center mb-3">Admin Login</h2>
         {error && <p className="text-danger text-center">{error}</p>}
-
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="usernameInput">Username</label>
@@ -63,7 +61,6 @@ const AdminLogin = () => {
               required
             />
           </div>
-
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">Password</label>
             <input
@@ -76,13 +73,9 @@ const AdminLogin = () => {
               required
             />
           </div>
-
-          <div className="form-group form-check">
-            <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-            <label className="form-check-label" htmlFor="exampleCheck1">Remember me</label>
-          </div>
-
-          <button type="submit" className="btn btn-primary w-100 mt-2">Login</button>
+          <button type="submit" className="btn btn-primary w-100 mt-2">
+            Login
+          </button>
         </form>
       </div>
     </div>

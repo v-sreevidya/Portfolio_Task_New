@@ -1,10 +1,22 @@
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../Authentication";
+import Sidebar from "../../Components/Sidebar";
 
-const ProtectedRoute = () => {
-  const isAuthenticated = localStorage.getItem("isAuthenticated");
+const ProtectedRoute = ({ component: Component }) => {
+  const { isAuthenticated, loading } = useAuth();
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/admin" />;
+  
+  if (loading) return null; 
+
+  return isAuthenticated ? (
+    <>
+      <Sidebar />
+      <Component />
+    </>
+  ) : (
+    <Navigate to="/admin" />
+  );
 };
 
 export default ProtectedRoute;

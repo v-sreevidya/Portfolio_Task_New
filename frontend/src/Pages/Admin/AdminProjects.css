@@ -28,7 +28,6 @@
     margin-bottom: 20px;
 }
 
-
 .list-group-item {
     background: none;
     color: white;
@@ -48,20 +47,20 @@ button.list-group-item {
 }
 
 
-.skills-container {
-    margin-left: 250px; 
-    
+.projects-container {
+    margin-left: 250px;  /* Adjust for the sidebar width */
+    flex: 1;
     padding: 30px;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100vh;
-    padding-top: 20px;
+    padding-top: 20px; 
     overflow: hidden; 
-    align-items: stretch;
 }
 
-.skills-header {
+
+.projects-header {
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -74,16 +73,18 @@ button.list-group-item {
 }
 
 
-.skills-header .section-title {
+.projects-header .section-title {
     font-size: 2.8rem;
     font-weight: bold;
     color: #f8f9fa;
 }
 
 
-.add-skill-btn {
+.add-project-btn {
     position: fixed;
-    right: calc(100px + 20px);  
+  
+   
+    right: calc(100px + 20px); 
     padding: 10px 20px;
     background-color: #7279dd;
     color: white;
@@ -94,48 +95,48 @@ button.list-group-item {
     z-index: 20;
 }
 
-.add-skill-btn:hover {
+.add-project-btn:hover {
     background-color: #218838;
 }
 
 
-.skills-table-container {
-   
-   width: 100%;
+.projects-table-container {
+    margin-top: 0;  
+    width: 100%;
     overflow: auto;
     box-sizing: border-box; 
-    flex-grow: 1;  
+    flex-grow: 1; 
 }
 
-
-.skills-table {
+.projects-table {
     width: 100%;
     border-collapse: collapse;
     background: #222;
     border-radius: 10px;
     overflow: hidden;
     color: white;
-} 
+}
 
 
-.skills-table thead {
+
+.projects-table thead {
     background-color: #7279dd;
 }
 
 
-.skills-table th, .skills-table td {
+.projects-table th, .projects-table td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #444;
 }
 
 
-.skills-table tbody tr:hover {
+.projects-table tbody tr:hover {
     background-color: #333;
 }
 
 
-.skills-table img {
+.projects-table img {
     width: 50px;
     height: 50px;
     object-fit: cover;
@@ -172,21 +173,21 @@ button.list-group-item {
 }
 
 
-.skills-table-container::-webkit-scrollbar {
+.projects-table-container::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 
-.skills-table-container::-webkit-scrollbar-track {
+.projects-table-container::-webkit-scrollbar-track {
     background-color: #333;
 }
 
-.skills-table-container::-webkit-scrollbar-thumb {
+.projects-table-container::-webkit-scrollbar-thumb {
     background-color: #555;
     border-radius: 10px;
 }
 
-.skills-table-container::-webkit-scrollbar-thumb:hover {
+.projects-table-container::-webkit-scrollbar-thumb:hover {
     background-color: #888;
 }
 
@@ -197,16 +198,16 @@ button.list-group-item {
         position: relative;
     }
 
-    .skills-container {
+    .projects-container {
         margin-left: 0;
         padding: 15px;
     }
 
-    .skills-table {
+    .projects-table {
         font-size: 12px;
     }
 
-    .add-skill-btn {
+    .add-project-btn {
         top: 10px;
         right: 10px;
     }
