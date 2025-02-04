@@ -1,4 +1,4 @@
-
+/* General Container Styling */
 .admin-container {
     display: flex;
     min-height: 100vh;
@@ -6,7 +6,7 @@
     color: white;
 }
 
-
+/* Sidebar Styling */
 .sidebar {
     width: 250px;
     height: 100vh;
@@ -19,7 +19,7 @@
     overflow-y: auto;
 }
 
-
+/* Sidebar Header */
 .sidebar-header {
     display: flex;
     align-items: center;
@@ -28,11 +28,11 @@
     margin-bottom: 20px;
 }
 
-
+/* Sidebar Items */
 .list-group-item {
     background: none;
     color: white;
-    font-size: 16px;
+    font-size: 19px;
     padding: 10px 15px;
     cursor: pointer;
 }
@@ -47,10 +47,9 @@ button.list-group-item {
     text-align: left;
 }
 
-
-.skills-container {
-    margin-left: 250px;
-    flex: 1;
+/* Users Container */
+.users-container {
+    margin-left: 250px;  
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -58,9 +57,11 @@ button.list-group-item {
     height: 100vh;
     padding-top: 20px;
     overflow: hidden;
+    align-items: stretch;
 }
 
-.skills-header {
+/* Users Header */
+.users-header {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,8 +73,8 @@ button.list-group-item {
     padding: 20px 0;
 }
 
-
-.skills-header .section-title {
+/* Section Title */
+.users-header .section-title {
     font-family: 'Lobster', cursive;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -82,8 +83,8 @@ button.list-group-item {
     color: #f8f9fa;
 }
 
-
-.add-skill-btn {
+/* Add User Button */
+.add-user-btn {
     position: fixed;
     right: calc(100px + 20px);
     padding: 10px 20px;
@@ -96,22 +97,21 @@ button.list-group-item {
     z-index: 20;
 }
 
-.add-skill-btn:hover {
+.add-user-btn:hover {
     background-color: #218838;
 }
 
-
-.skills-table-container {
-   
+/* Users Table Container */
+.users-table-container {
     margin-top: 30px;
     width: 100%;
     overflow: auto;
     box-sizing: border-box;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
-
-.skills-table {
+/* Users Table */
+.users-table {
     width: 100%;
     border-collapse: collapse;
     background: #222;
@@ -120,32 +120,24 @@ button.list-group-item {
     color: white;
 } 
 
-
-.skills-table thead {
+/* Table Head */
+.users-table thead {
     background-color: #7279dd;
 }
 
-
-.skills-table th, .skills-table td {
+/* Table Cells */
+.users-table th, .users-table td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #444;
 }
 
-
-.skills-table tbody tr:hover {
+/* Table Hover Effect */
+.users-table tbody tr:hover {
     background-color: #333;
 }
 
-
-.skills-table img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-
+/* Edit & Delete Buttons */
 .edit-btn, .delete-btn {
     padding: 6px 12px;
     margin-right: 10px;
@@ -174,43 +166,117 @@ button.list-group-item {
     background-color: #c82333;
 }
 
-
-.skills-table-container::-webkit-scrollbar {
+/* Scrollbar Styling */
+.users-table-container::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 
-.skills-table-container::-webkit-scrollbar-track {
+.users-table-container::-webkit-scrollbar-track {
     background-color: #333;
 }
 
-.skills-table-container::-webkit-scrollbar-thumb {
+.users-table-container::-webkit-scrollbar-thumb {
     background-color: #555;
     border-radius: 10px;
 }
 
-.skills-table-container::-webkit-scrollbar-thumb:hover {
+.users-table-container::-webkit-scrollbar-thumb:hover {
     background-color: #888;
 }
 
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
+.modal-content {
+    background-color: #222;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Modal buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-buttons button[type="submit"] {
+    background-color: #7279dd;
+    color: white;
+}
+
+.modal-buttons button[type="button"] {
+    background-color: #f44336;
+    color: white;
+}
+
+.modal-buttons button:hover {
+    opacity: 0.8;
+}
+
+/* Form fields styling */
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    outline: none;
+    background-color: #333;
+    color: white;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
         position: relative;
     }
 
-    .skills-container {
+    .users-container {
         margin-left: 0;
         padding: 15px;
     }
 
-    .skills-table {
+    .users-table {
         font-size: 12px;
     }
 
-    .add-skill-btn {
+    .add-user-btn {
         top: 10px;
         right: 10px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 1.5rem;
     }
 }

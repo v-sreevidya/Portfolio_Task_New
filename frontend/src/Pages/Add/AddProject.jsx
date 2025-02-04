@@ -7,11 +7,11 @@ const AddProject = () => {
     const [title, setTitle] = useState("");
     const [details, setDetails] = useState("");
     const [image, setImage] = useState(null);
-    const [imageName, setImageName] = useState(""); 
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         const formData = new FormData();
         formData.append("title", title);
         formData.append("details", details);
@@ -31,7 +31,6 @@ const AddProject = () => {
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
-        setImageName(e.target.files[0].name); 
     };
 
     return (
@@ -62,8 +61,8 @@ const AddProject = () => {
                         onChange={handleImageChange}
                         required
                     />
-                    {imageName && <p className="image-name">{imageName}</p>}
                 </label>
+                {image && <p className="image-name">{image.name}</p>} {/* Display image name */}
                 <button type="submit">Add Project</button>
             </form>
         </div>

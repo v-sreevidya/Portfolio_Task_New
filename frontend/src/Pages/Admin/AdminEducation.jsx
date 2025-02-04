@@ -2,14 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../Components/Sidebar";
-import Swal from "sweetalert2";
 import "./AdminEducation.css";
+import Swal from "sweetalert2";
 
 const AdminEducation = () => {
     const [educationList, setEducationList] = useState([]);
+    const [degree, setDegree] = useState("");
+    const [institution, setInstitution] = useState("");
+    const [year, setYear] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
     const navigate = useNavigate();
 
-    
     useEffect(() => {
         axios.get('http://localhost:8080/api/educations/get')
             .then(response => {
@@ -20,7 +23,6 @@ const AdminEducation = () => {
             });
     }, []);
 
-    
     const handleDelete = async (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -44,29 +46,59 @@ const AdminEducation = () => {
         });
     };
 
-    
     const handleEdit = (id) => {
         navigate(`/admin/education/edit/${id}`);
     };
 
- 
-    const handleAddEducation = () => {
-        navigate(`/admin/education/add`);
+    const openModal = () => {
+        setIsModalOpen(true); // Open modal
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false); // Close modal
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const educationData = {
+            degree,
+            institution,
+            year,
+        };
+
+        try {
+            await axios.post("http://localhost:8080/api/educations", educationData, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            setIsModalOpen(false); // Close modal after submitting
+            alert("Education added successfully!");
+            setDegree(""); // Clear the form
+            setInstitution("");
+            setYear("");
+            // Re-fetch the education list
+            const response = await axios.get('http://localhost:8080/api/educations/get');
+            setEducationList(response.data);
+        } catch (error) {
+            console.error("Error adding education:", error);
+            alert("Error adding education!");
+        }
     };
 
     return (
-        <div className="admin-container">
+        <div className="admin-container2">
             <Sidebar />
-            <div className="education-container">
-                
-                <div className="education-header">
+            <div className="education-container2">
+                <div className="education-header2">
                     <h2 className="section-title">Education List</h2>
-                    <button className="add-education-btn" onClick={handleAddEducation}>
+                    <button className="add-education-btn" onClick={openModal}>
                         Add Education
                     </button>
                 </div>
 
-                
                 <div className="education-table-container">
                     <table className="education-table">
                         <thead>
@@ -95,6 +127,48 @@ const AdminEducation = () => {
                     </table>
                 </div>
             </div>
+
+            {/* Add Education Modal */}
+            {isModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <h2>Add New Education</h2>
+                        <form onSubmit={handleSubmit}>
+                            <label>
+                                Degree:
+                                <input
+                                    type="text"
+                                    value={degree}
+                                    onChange={(e) => setDegree(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <label>
+                                Institution:
+                                <input
+                                    type="text"
+                                    value={institution}
+                                    onChange={(e) => setInstitution(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <label>
+                                Year:
+                                <input
+                                    type="text"
+                                    value={year}
+                                    onChange={(e) => setYear(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <div className="modal-buttons">
+                                <button type="submit">Add Education</button>
+                                <button type="button" onClick={closeModal}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

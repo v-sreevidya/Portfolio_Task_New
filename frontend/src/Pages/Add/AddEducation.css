@@ -1,97 +1,98 @@
-
 .add-education-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #222;
-    color: white;
+    background-color: #121212;  /* Dark background to match overall theme */
+    color: #f8f9fa;
     width: 100%;
-    height: 100vh;
-    padding: 20px;
+    min-height: 100vh;
+    padding: 40px;
+    box-sizing: border-box;
 }
 
 .add-education-container h2 {
+    font-family: 'Lobster', cursive;  /* Creative and bold font for the title */
     font-size: 2.8rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-weight: 700;
+    margin: 3rem 0 30px;
     text-align: center;
-    color: #f8f9fa;
-    margin-top: 3rem;
+    color: #ff6f00;  /* Neon orange color */
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-
 form {
-    background-color: #333;
-    padding: 30px;
-    border-radius: 10px;
+    background-color: #222;
+    padding: 40px;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100%;
     max-width: 500px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-
 label {
-    font-size: 16px;
+    font-size: 1.1rem;
     color: #f8f9fa;
-    font-weight: bold;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 input[type="text"] {
-    padding: 10px;
-    margin-top: 8px;
-    margin-left: 12px;
-    font-size: 16px;
-    background-color: #444;
+    padding: 14px;
+    font-size: 1rem;
+    background-color: #333;
     border: 1px solid #555;
-    border-radius: 5px;
+    border-radius: 6px;
     color: #f8f9fa;
     width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #007bff;
+    border-color: #ff6f00;  /* Neon orange border */
 }
-
 
 button[type="submit"] {
-    padding: 12px 20px;
-    background-color: #7279dd;
-    color: white;
+    padding: 14px 22px;
+    background-color: #73c054 !important;  
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
-}
-
-button[type="submit"]:hover {
-    background-color: #5c67e1;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
     .add-education-container {
-        padding: 15px;
+        padding: 20px;
     }
-
+    
     form {
-        width: 100%;
         max-width: 400px;
+        padding: 30px;
     }
-
-    h2 {
-        font-size: 24px;
+    
+    .add-education-container h2 {
+        font-size: 2.2rem;
     }
-
+    
     label {
-        font-size: 14px;
+        font-size: 1rem;
     }
-
-    input[type="text"], button[type="submit"] {
-        font-size: 14px;
+    
+    input[type="text"],
+    button[type="submit"] {
+        font-size: 1rem;
     }
 }

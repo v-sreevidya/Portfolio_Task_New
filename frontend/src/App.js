@@ -21,6 +21,9 @@ import ProtectedRoute from "./Pages/Admin/ProtectedRoute";
 import AdminEducation from "./Pages/Admin/AdminEducation";
 import AddEducation from "./Pages/Add/AddEducation";
 import EditEducation from "./Pages/Edit/EditEducation";
+import AdminUsers from "./Pages/Admin/AdminUsers";
+import AddUsers from "./Pages/Add/AddUsers";
+import EditUser from "./Pages/Edit/EditUser";
 
 function App() {
   return (
@@ -71,6 +74,18 @@ function App() {
           <Route path="/admin/education/edit/:id" element={ <div className="admin-container">
             <Sidebar />
             <EditEducation />
+          </div>} />
+          <Route path="/admin/user" element={ <div className="admin-container">
+            <Sidebar />
+            <AdminUsers />
+          </div>} />
+          <Route path="/admin/users/add" element={ <div className="admin-container">
+            <Sidebar />
+            <AddUsers />
+          </div>} />
+          <Route path="/admin/users/edit/:id" element={ <div className="admin-container">
+            <Sidebar />
+            <EditUser />
           </div>} />
         </Routes>
       </BrowserRouter>

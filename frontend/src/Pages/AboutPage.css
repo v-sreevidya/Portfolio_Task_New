@@ -45,7 +45,7 @@
   border-radius: 10px;
   padding: 5px; 
   width: 200px; 
-  height: 230px; 
+  height: 200px; 
   box-sizing: border-box; 
   overflow: hidden; 
   text-overflow: ellipsis; 
@@ -116,7 +116,7 @@
   }
 
   .education-container {
-    gap: 30px;
+    gap: 10px;
   }
 }
 
@@ -138,6 +138,6 @@
   }
 
   .education-container {
-    gap: 40px;
+    gap: 10px;
   }
 }

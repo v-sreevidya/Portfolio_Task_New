@@ -7,6 +7,11 @@ import Swal from "sweetalert2";
 
 const AdminProjects = () => {
     const [projects, setProjects] = useState([]);
+    const [title, setTitle] = useState("");
+    const [details, setDetails] = useState("");
+    const [image, setImage] = useState(null);
+    const [preview, setPreview] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -46,18 +51,63 @@ const AdminProjects = () => {
         navigate(`/admin/projects/edit/${id}`);
     };
 
-    const handleAddProject = () => {
-        navigate(`/admin/projects/add`);
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setTitle("");
+        setDetails("");
+        setImage(null);
+        setPreview(null);
+    };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImage(file);
+            setPreview(URL.createObjectURL(file));
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("details", details);
+        formData.append("image", image);
+
+        try {
+            await axios.post("http://localhost:8080/api/projects", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            setIsModalOpen(false);
+            alert("Project added successfully!");
+            setTitle("");
+            setDetails("");
+            setImage(null);
+            setPreview(null);
+            
+            const response = await axios.get('http://localhost:8080/api/projects/get');
+            setProjects(response.data);
+        } catch (error) {
+            console.error("Error adding project:", error);
+            alert("Error adding project!");
+        }
     };
 
     return (
-        <div className="admin-container">
+        <div className="admin-container3">
             <Sidebar />
-            <div className="projects-container">
-                
-                <div className="projects-header">
+            <div className="projects-container3">
+                <div className="projects-header3">
                     <h2 className="section-title">Projects List</h2>
-                    <button className="add-project-btn" onClick={handleAddProject}>
+                    <button className="add-project-btn" onClick={openModal}>
                         Add Project
                     </button>
                 </div>
@@ -68,8 +118,8 @@ const AdminProjects = () => {
                             <tr>
                                 <th>ID</th>
                                 <th>Title</th>
+                                <th>Details</th>
                                 
-                               
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -78,9 +128,8 @@ const AdminProjects = () => {
                                 <tr key={project.id}>
                                     <td>{project.id}</td>
                                     <td>{project.title}</td>
+                                    <td>{project.details}</td>
                                     
-                                    
-
                                     <td>
                                         <button className="edit-btn" onClick={() => handleEdit(project.id)}>Edit</button>
                                         <button className="delete-btn" onClick={() => handleDelete(project.id)}>Delete</button>
@@ -91,6 +140,47 @@ const AdminProjects = () => {
                     </table>
                 </div>
             </div>
+
+            {isModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <h2>Add New Project</h2>
+                        <form onSubmit={handleSubmit}>
+                            <label>
+                                Title:
+                                <input
+                                    type="text"
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <label>
+                                Details:
+                                <textarea
+                                    value={details}
+                                    onChange={(e) => setDetails(e.target.value)}
+                                    required
+                                ></textarea>
+                            </label>
+                            <label>
+                                Image:
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleImageChange}
+                                    required
+                                />
+                            </label>
+                            {preview && <img src={preview} alt="Preview" width="100" />}
+                            <div className="modal-buttons">
+                                <button type="submit">Add Project</button>
+                                <button type="button" onClick={closeModal}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

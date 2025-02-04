@@ -7,9 +7,11 @@ import Swal from "sweetalert2";
 
 const AdminSkills = () => {
     const [skills, setSkills] = useState([]);
+    const [title, setTitle] = useState("");
+    const [image, setImage] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
 
-    
     useEffect(() => {
         axios.get("http://localhost:8080/api/skills/get")
             .then(response => {
@@ -20,57 +22,74 @@ const AdminSkills = () => {
             });
     }, []);
 
- 
-
-   
-
-const handleDelete = async (id) => {
-    Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#d33",
-        cancelButtonColor: "#3085d6",
-        confirmButtonText: "Yes, delete it!"
-    }).then(async (result) => {
-        if (result.isConfirmed) {
-            try {
-                await axios.delete(`http://localhost:8080/api/skills/del/${id}`);
-                setSkills(skills.filter(skill => skill.id !== id));
-                Swal.fire("Deleted!", "The skill has been deleted.", "success");
-            } catch (error) {
-                Swal.fire("Error!", "Something went wrong.", "error");
-                console.error("Error deleting skill:", error);
+    const handleDelete = async (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await axios.delete(`http://localhost:8080/api/skills/del/${id}`);
+                    setSkills(skills.filter(skill => skill.id !== id));
+                    Swal.fire("Deleted!", "The skill has been deleted.", "success");
+                } catch (error) {
+                    Swal.fire("Error!", "Something went wrong.", "error");
+                    console.error("Error deleting skill:", error);
+                }
             }
-        }
-    });
-};
+        });
+    };
 
-
-    
     const handleEdit = (id) => {
         navigate(`/admin/skills/edit/${id}`);
     };
 
-    
-    const handleAddSkill = () => {
-        navigate(`/admin/skills/add`);
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("image", image);
+
+        try {
+            await axios.post("http://localhost:8080/api/skills", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+            setIsModalOpen(false);
+            Swal.fire("Success!", "Skill added successfully!", "success");
+            setTitle("");
+            setImage(null);
+            const response = await axios.get("http://localhost:8080/api/skills/get");
+            setSkills(response.data);
+        } catch (error) {
+            console.error("Error adding skill:", error);
+            Swal.fire("Error!", "Something went wrong.", "error");
+        }
     };
 
     return (
         <div className="admin-container">
             <Sidebar />
             <div className="skills-container">
-                {/* Fixed navbar-like section */}
                 <div className="skills-header">
                     <h2 className="section-title">Skills List</h2>
-                    <button className="add-skill-btn" onClick={handleAddSkill}>
-                        Add Skill
-                    </button>
+                    <button className="add-skill-btn" onClick={openModal}>Add Skill</button>
                 </div>
 
-                {/* Table to show skills */}
                 <div className="skills-table-container">
                     <table className="skills-table">
                         <thead>
@@ -99,6 +118,37 @@ const handleDelete = async (id) => {
                     </table>
                 </div>
             </div>
+
+            {isModalOpen && (
+                <div className="modal-overlay">
+                    <div className="modal-content">
+                        <h2>Add New Skill</h2>
+                        <form onSubmit={handleSubmit}>
+                            <label>
+                                Title:
+                                <input
+                                    type="text"
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    required
+                                />
+                            </label>
+                            <label>
+                                Image:
+                                <input
+                                    type="file"
+                                    onChange={(e) => setImage(e.target.files[0])}
+                                    required
+                                />
+                            </label>
+                            <div className="modal-buttons">
+                                <button type="submit">Add Skill</button>
+                                <button type="button" onClick={closeModal}>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

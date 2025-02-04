@@ -28,7 +28,7 @@ const Sidebar = () => {
                     <i className="bi bi-mortarboard me-2"></i> Add Users
                 </Link>
                 <button className="list-group-item list-group-item-action" onClick={() => handleLogout()}>
-                    <i className="bi bi-box-arrow-right me-2"></i> Logout
+                    <i className="bi bi-mortarboard me-2"></i> Logout
                 </button>
             </div>
         </div>

@@ -1,3 +1,4 @@
+/* Container Styling */
 .add-project-container {
     display: flex;
     flex-direction: column;
@@ -6,59 +7,172 @@
     height: 100vh;
     width: 100%;
     padding: 20px;
-    background-color: black;
+    background-color: #121212; /* Deep black background */
+    color: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
+/* Title Styling */
 .add-project-container h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: #7279dd; /* Violet-Blue */
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-align: center;
     margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(114, 121, 221, 0.6);
 }
 
+/* Form Styling */
 .add-project-container form {
-    
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(114, 121, 221, 0.3);
 }
 
+/* Label Styling */
 .add-project-container label {
-    margin-bottom: 15px;
-    font-size: 16px;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #e0e0e0;
 }
 
-.add-project-container input, 
+/* Input & Textarea Styling */
+.add-project-container input,
 .add-project-container textarea {
-    padding: 10px;
-    font-size: 16px;
-    margin-top: 5px;
     width: 100%;
-    border-radius: 5px;
-   
+    padding: 12px;
+    background-color: #222;
+    border: 2px solid #444;
+    color: #f8f8f8;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
 }
 
+.add-project-container input:focus,
+.add-project-container textarea:focus {
+    outline: none;
+    border-color: #7279dd;
+    box-shadow: 0 0 10px rgba(114, 121, 221, 0.6);
+}
+
+/* Textarea */
 .add-project-container textarea {
-    height: 150px;
+    height: 140px;
     resize: vertical;
 }
 
+/* Image Name Display */
+.image-name {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-top: 5px;
+}
+
+/* Buttons */
 .add-project-container button {
-    padding: 10px;
-    background-color: #7279dd;
+    padding: 12px 26px;
+    background: linear-gradient(135deg, #7279dd, #858bdf);
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
+    font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
     margin-top: 10px;
+    box-shadow: 0px 4px 10px rgba(114, 121, 221, 0.4);
 }
 
 .add-project-container button:hover {
-    background-color: #7279dd;
+    background: linear-gradient(135deg, #858bdf, #7279dd);
+    box-shadow: 0px 6px 15px rgba(114, 121, 221, 0.6);
 }
 
-.image-name {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #555;
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #181818;
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 6px 20px rgba(114, 121, 221, 0.4);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: #7279dd;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    color: #858bdf;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .add-project-container {
+        padding: 20px;
+    }
+
+    .add-project-container h2 {
+        font-size: 2rem;
+    }
+
+    .add-project-container form {
+        padding: 20px;
+    }
+
+    .add-project-container input,
+    .add-project-container textarea,
+    .add-project-container button {
+        font-size: 1rem;
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

@@ -1,34 +1,71 @@
-.dash {
-    background-color: green;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    max-width: 600px;
-    text-align: center;
-    margin-top: 50px;
-    transition: all 0.3s ease;
-  }
+/* Admin Dashboard Styles */
+.admin-dashboard-container {
+  display: flex;
+  background-color: #1e1e1e; /* Darker background for richness */
+  min-height: 100vh;
+  color: #fff;
+  font-family: 'Lobster', cursive;  /* Clean and modern font */
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: 320px; /* Adjusted for wider sidebar */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-title {
+  font-size: 3rem; /* Bigger title */
+  font-weight: 700; /* Heavier font weight */
+  margin-bottom: 40px;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+.dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 30px;
+}
+
+.dashboard-card {
+  background-color: #2c3e50; /* Darker card background */
+  padding: 40px;
+  border-radius: 20px; /* More rounded corners */
+  flex: 1 1 300px; /* Flexible sizing for better responsiveness */
+  text-align: center;
   
-  .dash h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .dash button {
-    background-color:#7279dd;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  
-  .dash button:focus {
-    outline: none;
-  }
-  
+  transition: background-color 0.3s, transform 0.3s;
+  max-width: 350px;
+}
+
+.dashboard-card h3 {
+  font-size: 2.2rem; /* Bigger heading */
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ecf0f1; /* Lighter heading color */
+}
+.head{
+  text-shadow: none;
+}
+
+.dashboard-card p {
+  font-size: 3.5rem; /* Bigger numbers */
+  font-weight: 700;
+  color: #7279dd; /* Blue color for numbers */
+}
+
+.dashboard-card:hover {
+  background-color: #34495e; /* Slightly lighter background */
+  transform: translateY(-10px); /* Stronger floating effect */
+}
+
+

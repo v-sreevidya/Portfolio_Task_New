@@ -24,7 +24,9 @@
 
 
 .edit-education-container h2 {
-    font-size: 1.8rem;
+    font-family: 'Lobster', cursive;  
+    font-weight: 500;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     color: white;
 }
@@ -50,13 +52,12 @@ input[type="text"] {
     margin-bottom: 1rem;
     outline: none;
     background-color: #333;
+    border: 1px solid #ccc;
     color: #fff;
     width: 100%;
 }
 
-input[type="text"]:focus {
-    border: 1px solid #007bff;
-}
+
 
 
 .error-message {
