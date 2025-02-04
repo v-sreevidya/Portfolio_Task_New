@@ -1,51 +1,9 @@
-/* General Container Styling */
-.admin-container {
-    display: flex;
-    min-height: 100vh;
-    background-color: black;
-    color: white;
-}
 
-/* Sidebar Styling */
-.sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    overflow-y: auto;
-}
 
-/* Sidebar Header */
-.sidebar-header {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
 
-/* Sidebar Items */
-.list-group-item {
-    background: none;
-    color: white;
-    font-size: 19px;
-    padding: 10px 15px;
-    cursor: pointer;
-}
 
-.list-group-item:hover {
-    background: #7279dd;
-}
 
-button.list-group-item {
-    border: none;
-    width: 100%;
-    text-align: left;
-}
+
 
 /* Users Container */
 .users-container {
@@ -53,7 +11,7 @@ button.list-group-item {
     padding: 30px;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: 100%;
     height: 100vh;
     padding-top: 20px;
     overflow: hidden;
@@ -104,7 +62,7 @@ button.list-group-item {
 /* Users Table Container */
 .users-table-container {
     margin-top: 30px;
-    width: 100%;
+    max-width: 100%;
     overflow: auto;
     box-sizing: border-box;
     flex-grow: 1;
@@ -190,7 +148,7 @@ button.list-group-item {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
@@ -203,7 +161,7 @@ button.list-group-item {
     background-color: #222;
     padding: 2rem;
     border-radius: 10px;
-    width: 400px;
+    max-width: 400px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
@@ -256,10 +214,7 @@ form input {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        position: relative;
-    }
+   
 
     .users-container {
         margin-left: 0;

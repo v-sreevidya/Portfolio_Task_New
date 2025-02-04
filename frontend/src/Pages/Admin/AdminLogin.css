@@ -3,11 +3,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #212121; /* Dark background */
+  background-color: #212121; 
 }
 
 .login-box {
-  background: #2c3e50; /* Darker background for the box */
+  background: #2c3e50; 
   padding: 2.5rem;
   border-radius: 15px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
@@ -17,12 +17,12 @@
 }
 
 .login-box:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  transform: scale(1.05);
 }
 
 h2 {
   margin-bottom: 1.5rem;
-  color: #FF6F00; /* Neon orange header */
+  color: #FF6F00; 
   font-size: 24px;
   font-weight: 600;
 }
@@ -38,18 +38,18 @@ h2 {
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 16px;
-  background-color: #ecf0f1; /* Light grey background for inputs */
+  background-color: #ecf0f1; 
   transition: border-color 0.3s ease;
 }
 
 .login-form input:focus {
-  border-color: #FF6F00; /* Neon orange focus border */
+  border-color: #FF6F00; 
   outline: none;
 }
 
 .login-form button {
   padding: 12px;
-  background: #FF6F00; /* Neon orange button */
+  background: #FF6F00; 
   color: white;
   border: none;
   cursor: pointer;
@@ -60,11 +60,10 @@ h2 {
 }
 
 .login-form button:hover {
-  background: #e64a19; /* Slightly darker shade of orange on hover */
-}
+  background: #e64a19; 
 
 .error-message {
-  color: #e74c3c; /* Red color for error messages */
+  color: #e74c3c; 
   margin-bottom: 15px;
   font-size: 14px;
   font-weight: 600;
@@ -82,4 +81,5 @@ h2 {
   .login-form button {
       font-size: 14px;
   }
+}
 }

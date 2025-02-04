@@ -10,15 +10,16 @@ const AdminLogin = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // If the user is already authenticated, redirect them to the dashboard.
+ 
   if (isAuthenticated) {
     return <Navigate to="/admin/dashboard" />;
   }
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError("");
+    setError(""); 
 
+    
     const credentials = btoa(`${username}:${password}`);
 
     try {
@@ -27,17 +28,19 @@ const AdminLogin = () => {
         {},
         {
           headers: {
-            Authorization: `Basic ${credentials}`,
+            Authorization: `Basic ${credentials}`, 
           },
         }
       );
 
       if (response.status === 200) {
+        
         setIsAuthenticated(true);
         localStorage.setItem("isAuthenticated", "true");
         navigate("/admin/dashboard");
       }
     } catch (err) {
+      
       setError("Invalid credentials. Please try again.");
       localStorage.setItem("isAuthenticated", "false");
     }
@@ -47,7 +50,10 @@ const AdminLogin = () => {
     <div className="container d-flex justify-content-center align-items-center vh-100">
       <div className="card p-4 shadow-sm" style={{ width: "400px" }}>
         <h2 className="text-center mb-3">Admin Login</h2>
+        
+        
         {error && <p className="text-danger text-center">{error}</p>}
+
         <form onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="usernameInput">Username</label>
@@ -61,18 +67,20 @@ const AdminLogin = () => {
               required
             />
           </div>
+
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1">Password</label>
+            <label htmlFor="passwordInput">Password</label>
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              id="passwordInput"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
+
           <button type="submit" className="btn btn-primary w-100 mt-2">
             Login
           </button>

@@ -68,7 +68,7 @@ const AdminEducation = () => {
         };
 
         try {
-            await axios.post("http://localhost:8080/api/educations", educationData, {
+            await axios.post("http://localhost:8080/api/educations/create", educationData, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -90,7 +90,7 @@ const AdminEducation = () => {
 
     return (
         <div className="admin-container2">
-            <Sidebar />
+            
             <div className="education-container2">
                 <div className="education-header2">
                     <h2 className="section-title">Education List</h2>

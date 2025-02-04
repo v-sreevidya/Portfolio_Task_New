@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Components/Sidebar";
+
 import "./AdminUsers.css";
 import Swal from "sweetalert2";
 
@@ -70,7 +70,7 @@ const AdminUsers = () => {
         };
 
         try {
-            await axios.post("http://localhost:8080/api/users", userData, {
+            await axios.post("http://localhost:8080/api/admin/register", userData, {
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -93,7 +93,7 @@ const AdminUsers = () => {
 
     return (
         <div className="admin-container">
-            <Sidebar />
+            
             <div className="users-container">
                 {/* Fixed navbar-like section */}
                 <div className="users-header">

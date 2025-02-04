@@ -83,7 +83,7 @@ const AdminSkills = () => {
 
     return (
         <div className="admin-container">
-            <Sidebar />
+            
             <div className="skills-container">
                 <div className="skills-header">
                     <h2 className="section-title">Skills List</h2>

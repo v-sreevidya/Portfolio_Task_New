@@ -103,7 +103,7 @@ const AdminProjects = () => {
 
     return (
         <div className="admin-container3">
-            <Sidebar />
+           
             <div className="projects-container3">
                 <div className="projects-header3">
                     <h2 className="section-title">Projects List</h2>

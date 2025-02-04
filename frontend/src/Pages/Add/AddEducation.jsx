@@ -19,7 +19,7 @@ const AddEducation = () => {
                     "Content-Type": "application/json",
                 },
             });
-            navigate("/admin/education"); // Redirect to Education list after adding
+            navigate("/admin/education"); 
         } catch (error) {
             console.error("Error adding education:", error);
         }

@@ -21,7 +21,7 @@ const AddSkill = () => {
                     "Content-Type": "multipart/form-data",
                 },
             });
-            navigate("/admin/skills"); // Redirect to Skills list after adding
+            navigate("/admin/skills"); 
         } catch (error) {
             console.error("Error adding skill:", error);
         }

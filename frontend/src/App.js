@@ -39,15 +39,21 @@ function App() {
           <Route path="/admin" element={<AdminLogin />} />
           <Route
             path="/admin/dashboard"
-            element={<ProtectedRoute component={AdminDashboard} />}
+            element={<><ProtectedRoute component={AdminDashboard} />
+           
+            </>}
           />
           <Route
             path="/admin/skills"
-            element={<ProtectedRoute component={AdminSkills} />}
+            element={<><ProtectedRoute component={AdminSkills} />
+             <Sidebar />
+            </>}
           />
           <Route
             path="/admin/projects"
-            element={<ProtectedRoute component={AdminProjects} />}
+            element={<><ProtectedRoute component={AdminProjects} />
+            <Sidebar />
+            </>}
           />
           <Route path="/admin/skills/edit/:id" element={<div className="admin-container">
             <Sidebar />
