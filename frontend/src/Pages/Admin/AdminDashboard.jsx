@@ -15,7 +15,7 @@ const AdminDashboard = () => {
         const fetchData = async () => {
             try {
                
-                const usersResponse = await axios.get("http://localhost:8080/api/admin/get");
+                const usersResponse = await axios.get("http://localhost:8080/api/admin/all");
                 setUserCount(usersResponse.data.length); 
 
                 
