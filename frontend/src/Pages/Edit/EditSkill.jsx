@@ -106,7 +106,7 @@ const EditSkill = () => {
 
     return (
         <div className="admin-container">
-            <Sidebar />
+            
             <div className="edit-skill-container">
                 <h2>Edit Skill</h2>
                 <form onSubmit={handleUpdate}>

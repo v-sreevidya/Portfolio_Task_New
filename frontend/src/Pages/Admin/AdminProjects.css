@@ -1,5 +1,5 @@
 
-   * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #121212;
+    background-color: #1e1e1e;
     color: #f8f8f8;
     line-height: 1.6;
     display: flex;
@@ -21,14 +21,14 @@ body {
 }
 
 
-.admin-container3 {
+.admin-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 
-.projects-container3 {
+.projects-container1 {
     flex: 1;
     padding: 5vw;
     display: flex;
@@ -39,7 +39,7 @@ body {
 }
 
 
-.projects-header3 {
+.projects-header1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,7 +84,7 @@ body {
 }
 
 
-.projects-table-container {
+.projects-table-container1 {
     margin-top: 2vw;
     width: 100%;
     overflow-x: auto;
@@ -93,29 +93,29 @@ body {
 }
 
 
-.projects-table {
+.projects-table1 {
     width: 100%;
     border-collapse: collapse;
     background: #222;
-    border-radius: 10px;
+    
     overflow: hidden;
     color: white;
     min-width: 600px;
 }
 
-.projects-table thead {
+.projects-table1 thead {
     background-color: #7279dd;
 }
 
-.projects-table th,
-.projects-table td {
+.projects-table1 th,
+.projects-table1 td {
     padding: 3vw;
     text-align: center;
     border-bottom: 1px solid #444;
     font-size: 3vw;
 }
 
-.projects-table tbody tr:hover {
+.projects-table1 tbody tr:hover {
     background-color: #333;
 }
 
@@ -233,27 +233,27 @@ body {
 }
 
 
-.projects-table-container::-webkit-scrollbar {
+.projects-table-container1::-webkit-scrollbar {
     width: 1vw;
 }
 
-.projects-table-container::-webkit-scrollbar-track {
+.projects-table-container1::-webkit-scrollbar-track {
     background-color: #333;
 }
 
-.projects-table-container::-webkit-scrollbar-thumb {
+.projects-table-container1::-webkit-scrollbar-thumb {
     background-color: #555;
     border-radius: 10px;
 }
 
-.projects-table-container::-webkit-scrollbar-thumb:hover {
+.projects-table-container1::-webkit-scrollbar-thumb:hover {
     background-color: #888;
 }
 
 
    
 @media (min-width: 600px) {
-    .projects-header3 .section-title {
+    .projects-header1 .section-title {
         font-size: 3rem;
     }
 
@@ -262,8 +262,8 @@ body {
         padding: 0.5rem 1rem;
     }
 
-    .projects-table th,
-    .projects-table td {
+    .projects-table1 th,
+    .projects-table1 td {
         padding: 1rem;
         font-size: 1rem;
     }
@@ -271,7 +271,7 @@ body {
 
 
 @media (min-width: 1025px) {
-    .projects-container3 {
+    .projects-container1 {
         margin-left: 250px;
         padding: 30px;
         width: calc(100% - 250px);
@@ -288,13 +288,13 @@ body {
         padding: 10px 20px;
     }
 
-    .projects-table-container {
+    .projects-table-container1 {
         width: 100%;
         padding: 0 50px;
     }
 
-    .projects-table th,
-    .projects-table td {
+    .projects-table1 th,
+    .projects-table1 td {
         padding: 15px;
         font-size: 1rem;
     }

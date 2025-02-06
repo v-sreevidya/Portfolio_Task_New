@@ -6,13 +6,13 @@ import Sidebar from "../../Components/Sidebar";
 const ProtectedRoute = ({ component: Component }) => {
   const { isAuthenticated, loading } = useAuth();
 
-  
-  if (loading) return null; 
+  if (loading) return null;
 
   return isAuthenticated ? (
     <>
       <Sidebar />
       <Component />
+      
     </>
   ) : (
     <Navigate to="/admin" />

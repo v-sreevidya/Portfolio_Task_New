@@ -15,7 +15,7 @@ const AdminDashboard = () => {
         const fetchData = async () => {
             try {
                
-                const usersResponse = await axios.get("http://localhost:8080/api/admin/get");
+                const usersResponse = await axios.get("http://localhost:8080/api/admin/all");
                 setUserCount(usersResponse.data.length); 
 
                 
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
     return (
         
              <div className={`admin-dashboard-container ${isSidebarOpen ? "sidebar-open" : ""}`}>
-             <Sidebar isSidebarOpen={isSidebarOpen} />
+             {/* <Sidebar isSidebarOpen={isSidebarOpen} /> */}
             
             <div className="dashboard-content">
                 <h2 className="dashboard-title">Admin Dashboard</h2>

@@ -1,219 +1,194 @@
-
 .users-container {
-    margin-left: 250px;  
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    height: 100vh;
-    padding-top: 20px;
-    overflow: hidden;
-    align-items: stretch;
+  margin-left: 0;
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-top: 20px;
+  overflow: hidden;
 }
-
 
 .users-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1px;
-    position: sticky;
-    top: 0;
-    background-color: black;
-    z-index: 10;
-    padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+  position: sticky;
+  top: 0;
+  
+  z-index: 10;
+  padding: 20px 0;
 }
-
 
 .users-header .section-title {
-    font-family: 'Lobster', cursive;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: #f8f9fa;
+  font-family: 'Lobster', cursive;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #f8f9fa;
 }
 
-
 .add-user-btn {
-    position: fixed;
-    right: calc(100px + 20px);
-    padding: 10px 20px;
-    background-color: #7279dd;
-    color: white;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 20;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  padding: 6px 12px;
+  background-color: #7279dd;
+  color: white;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 20;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .add-user-btn:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
-
 
 .users-table-container {
-    margin-top: 30px;
-    max-width: 100%;
-    overflow: auto;
-    box-sizing: border-box;
-    flex-grow: 1;
+  margin-left: 180px;
+  margin-top: 30px;
+  width: 100%;
+  overflow: auto;
+  box-sizing: border-box;
+  flex-grow: 1;
 }
-
 
 .users-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #222;
-    border-radius: 10px;
-    overflow: hidden;
-    color: white;
-} 
-
+  width: 100%;
+  border-collapse: collapse;
+  background: #222;
+  overflow: hidden;
+  color: white;
+}
 
 .users-table thead {
-    background-color: #7279dd;
+  background-color: #7279dd;
 }
 
-
-.users-table th, .users-table td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #444;
+.users-table th, 
+.users-table td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+  font-size: 10px;
 }
-
 
 .users-table tbody tr:hover {
-    background-color: #333;
+  background-color: #333;
 }
 
-
-.edit-btn, .delete-btn {
-    padding: 6px 12px;
-    margin-right: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 5px;
-    transition: 0.3s ease-in-out;
+.edit-btn, 
+.delete-btn {
+  padding: 4px 8px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .edit-btn {
-    background-color: #28a745;
-    color: white;
+  background-color: #28a745;
+  color: white;
 }
 
 .delete-btn {
-    background-color: #dc3545;
-    color: white;
+  background-color: #dc3545;
+  color: white;
 }
 
 .edit-btn:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
 .delete-btn:hover {
-    background-color: #c82333;
+  background-color: #c82333;
 }
 
-
 .users-table-container::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 
 .users-table-container::-webkit-scrollbar-track {
-    background-color: #333;
+  background-color: #333;
 }
 
 .users-table-container::-webkit-scrollbar-thumb {
-    background-color: #555;
-    border-radius: 10px;
+  background-color: #555;
+  border-radius: 10px;
 }
 
 .users-table-container::-webkit-scrollbar-thumb:hover {
-    background-color: #888;
+  background-color: #888;
 }
 
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #222;
-    color: white;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-    padding-top: 20px;
-    transform: translateX(0);
+@media (min-width: 601px) and (max-width: 1024px) {
+  .users-container {
+      max-width: 100%;
+  }
+  
+  .users-header .section-title {
+      font-size: 1.2rem;
+  }
+  
+  .add-user-btn {
+      top: 10px;
+      right: 10px;
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+  
+  .users-table th, 
+  .users-table td {
+      padding: 8px;
+      font-size: 12px;
+  }
+  
+  .edit-btn, 
+  .delete-btn {
+      font-size: 12px;
+      padding: 4px 8px;
+  }
 }
 
-.sidebar a {
-    display: block;
-    padding: 15px 20px;
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-}
-
-.sidebar a:hover {
-    background-color: #444;
-}
-
-
-.hamburger-menu {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    padding: 10px;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1200;
-}
-
-@media (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%);
-        position: fixed;
-    }
-    .sidebar.open {
-        transform: translateX(0);
-    }
-    .hamburger-menu {
-        display: block;
-    }
-    .users-container {
-        margin-left: 0;
-        padding: 10px;
-    }
-    .users-header .section-title {
-        font-size: 2rem;
-    }
-    .add-user-btn {
-        right: 10px;
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-    .users-table th, .users-table td {
-        padding: 8px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .users-header .section-title {
-        font-size: 1.8rem;
-    }
-    .add-user-btn {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-    .users-table th, .users-table td {
-        font-size: 12px;
-    }
+@media (min-width: 1025px) {
+  .users-container {
+      width: 100%;
+  }
+  
+  .users-header .section-title {
+      font-size: 2.8rem; 
+  }
+  
+  .add-user-btn {
+      top: 20px;
+      right: calc(100px + 20px);
+      font-size: 16px;
+      padding: 10px 20px;
+  }
+  
+  .users-table-container {
+      width: 70%;
+      padding-left: 100px;
+  }
+  
+  .users-table th, 
+  .users-table td {
+      padding: 15px;
+      font-size: 14px;
+  }
+  
+  .edit-btn, 
+  .delete-btn {
+      font-size: 14px;
+      padding: 6px 12px;
+  }
 }

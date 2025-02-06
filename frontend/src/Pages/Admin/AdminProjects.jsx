@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import Sidebar from "../../Components/Sidebar";
 import "./AdminProjects.css";
-import Swal from "sweetalert2";
 
 const AdminProjects = () => {
     const [projects, setProjects] = useState([]);
@@ -56,7 +56,7 @@ const AdminProjects = () => {
     };
 
     const closeModal = () => {
-        setIsModalOpen(false);//c
+        setIsModalOpen(false);
         setTitle("");
         setDetails("");
         setImage(null);
@@ -86,13 +86,6 @@ const AdminProjects = () => {
                 },
             });
 
-            setIsModalOpen(false);
-            alert("Project added successfully!");
-            setTitle("");//form reset
-            setDetails("");
-            setImage(null);
-            setPreview(null);
-            
             const response = await axios.get('http://localhost:8080/api/projects/get');
             setProjects(response.data);
         } catch (error) {
@@ -102,24 +95,21 @@ const AdminProjects = () => {
     };
 
     return (
-        <div className="admin-container3">
-           
-            <div className="projects-container3">
+        <div className="admin-container">
+          
+            <div className="projects-container1">
                 <div className="projects-header3">
                     <h2 className="section-title">Projects List</h2>
-                    <button className="add-project-btn" onClick={openModal}>
-                        Add Project
-                    </button>
+                    <button className="add-project-btn" onClick={openModal}>Add Project</button>
                 </div>
 
-                <div className="projects-table-container">
-                    <table className="projects-table">
+                <div className="projects-table-container1">
+                    <table className="projects-table1">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Title</th>
                                 <th>Details</th>
-                                
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -129,7 +119,6 @@ const AdminProjects = () => {
                                     <td>{project.id}</td>
                                     <td>{project.title}</td>
                                     <td>{project.details}</td>
-                                    
                                     <td>
                                         <button className="edit-btn" onClick={() => handleEdit(project.id)}>Edit</button>
                                         <button className="delete-btn" onClick={() => handleDelete(project.id)}>Delete</button>

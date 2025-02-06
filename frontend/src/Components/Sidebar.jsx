@@ -8,26 +8,26 @@ const Sidebar = () => {
     const { setIsAuthenticated } = useAuth();
     const navigate = useNavigate();
 
-    // Toggle Sidebar Function
+   
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
     };
 
-    // Logout Function
+    
     const handleLogout = () => {
         localStorage.setItem("isAuthenticated", "false");
         setIsAuthenticated(false);
         navigate("/admin");
     };
 
-    // Close Sidebar When Clicking Outside
+    
     const handleClickOutside = (event) => {
         if (!event.target.closest(".sidebar") && !event.target.closest(".hamburger-btn")) {
             setIsOpen(false);
         }
     };
 
-    // Add event listener when sidebar is open
+    
     useEffect(() => {
         if (isOpen) {
             document.addEventListener("click", handleClickOutside);
@@ -36,6 +36,7 @@ const Sidebar = () => {
         }
         return () => document.removeEventListener("click", handleClickOutside);
     }, [isOpen]);
+   
 
     return (
         <>
@@ -44,7 +45,7 @@ const Sidebar = () => {
                 ☰
             </button>
 
-            {/* Sidebar Container */}
+           
             <nav className={`sidebar ${isOpen ? "open" : ""}`}>
                 <div className="list-group list-group-flush">
                     <Link to="/admin/dashboard" className="list-group-item">Dashboard</Link>
