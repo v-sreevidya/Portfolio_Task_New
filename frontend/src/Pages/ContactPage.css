@@ -2,69 +2,69 @@ body{
     background-color: black;
 }
 .detail {
-    /* Darker background for better contrast */
-    border: 1px solid #28a745; /* Slightly brighter green for the border */
-    color: #E0E0E0; /* Lighter text color for better readability */
-    padding: 15px; /* Increased padding for a more spacious look */
-    border-radius: 8px; /* Smoother corners */
-    width: 60%; /* Slightly wider for a balanced design */
-    margin-bottom: 20px; /* Increased margin for more space */
+   
+    border: 1px solid #28a745; 
+    color: #E0E0E0;
+    padding: 15px; 
+    border-radius: 8px;
+    width: 60%; 
+    margin-bottom: 20px; 
     
 }
 
 .detail:hover {
-    transform: scale(1.02); /* Subtle zoom effect on hover */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .text-center h2 {
     font-family: 'Lobster', cursive !important;
-    font-size: 2.5rem; /* Slightly bigger font size */
-    font-weight: 700; /* Bolder font */
-    margin-top: 2rem; /* Increased top margin */
-    margin-bottom: 8rem; /* Increased bottom margin for better spacing */
-    color: black; /* Neon orange color for the text */
-    text-align: center; /* Ensuring the text is centered */
-    text-transform: uppercase; /* Make the text more prominent */
+    font-size: 2.5rem;
+    font-weight: 700; 
+    margin-top: 2rem;
+    margin-bottom: 8rem; 
+    color: black; 
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .social-icons {
     display: flex;
-    justify-content: center; /* Center the icons horizontally */
+    justify-content: center; 
     align-items: center;
-    padding-bottom: 50px; /* Reduced padding for a more compact layout */
-    gap: 40px; /* Slightly reduced gap */
+    padding-bottom: 50px; 
+    gap: 40px; 
 }
 
 .social-icons i {
-    font-size: 2rem; /* Bigger icons for better visibility */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    font-size: 2rem; 
+    transition: transform 0.3s ease, color 0.3s ease; 
 }
 
 .social-icons i:hover {
-    transform: scale(1.2); /* Slight zoom effect on hover */
+    transform: scale(1.2); 
 }
 
 .linkedin {
-    color: #0077b5; /* LinkedIn blue */
+    color: #0077b5; 
 }
 
 .mail {
-    color: #FF6600; /* Orange for mail */
+    color: #FF6600;
 }
 
 .github {
-    color: white; /* White for GitHub */
+    color: white; 
 }
 
 .social-icons i:hover.linkedin {
-    color: #006697; /* Darker blue on hover */
+    color: #006697; 
 }
 
 .social-icons i:hover.mail {
-    color: #e64a19; /* Darker orange on hover */
+    color: #e64a19; 
 }
 
 .social-icons i:hover.github {
-    color: #cfcfcf; /* Lighter grey for GitHub on hover */
+    color: #cfcfcf; 
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Components/Sidebar";
+
 import "./AdminSkills.css";
 import Swal from "sweetalert2";
 
@@ -11,6 +11,7 @@ const AdminSkills = () => {
     const [image, setImage] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         axios.get("http://localhost:8080/api/skills/get")

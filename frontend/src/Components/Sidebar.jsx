@@ -1,58 +1,60 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import './Sidebar.css';
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Pages/Authentication";
+import "./Sidebar.css";
 
 const Sidebar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const { setIsAuthenticated } = useAuth();
-    const navigate = useNavigate(); // for navigation without page reload
+    const navigate = useNavigate();
 
-    
+    // Toggle Sidebar Function
     const toggleSidebar = () => {
-        setIsSidebarOpen(!isSidebarOpen);
+        setIsOpen(!isOpen);
     };
 
+    // Logout Function
     const handleLogout = () => {
         localStorage.setItem("isAuthenticated", "false");
         setIsAuthenticated(false);
-        navigate("/admin"); 
+        navigate("/admin");
     };
+
+    // Close Sidebar When Clicking Outside
+    const handleClickOutside = (event) => {
+        if (!event.target.closest(".sidebar") && !event.target.closest(".hamburger-btn")) {
+            setIsOpen(false);
+        }
+    };
+
+    // Add event listener when sidebar is open
+    useEffect(() => {
+        if (isOpen) {
+            document.addEventListener("click", handleClickOutside);
+        } else {
+            document.removeEventListener("click", handleClickOutside);
+        }
+        return () => document.removeEventListener("click", handleClickOutside);
+    }, [isOpen]);
 
     return (
         <>
-            
+            {/* Hamburger Menu Button */}
             <button className="hamburger-btn" onClick={toggleSidebar}>
-                ☰ {/* Hamburger Icon */}
+                ☰
             </button>
 
-            {/* Sidebar */}
-            <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+            {/* Sidebar Container */}
+            <nav className={`sidebar ${isOpen ? "open" : ""}`}>
                 <div className="list-group list-group-flush">
-                    <Link to="/admin/dashboard" className="list-group-item list-group-item-action">
-                        <i className="bi bi-speedometer2 me-2"></i> Dashboard
-                    </Link>
-                    <Link to="/admin/skills" className="list-group-item list-group-item-action">
-                        <i className="bi bi-lightbulb me-2"></i> Skills
-                    </Link>
-                    <Link to="/admin/projects" className="list-group-item list-group-item-action">
-                        <i className="bi bi-kanban me-2"></i> Projects
-                    </Link>
-                    <Link to="/admin/education" className="list-group-item list-group-item-action">
-                        <i className="bi bi-mortarboard me-2"></i> Education
-                    </Link>
-                    <Link to="/admin/user" className="list-group-item list-group-item-action">
-                        <i className="bi bi-person-add me-2"></i> Add Users
-                    </Link>
-                    <button
-                        className="list-group-item list-group-item-action logout-btn"
-                        onClick={handleLogout}
-                    >
-                        <i className="bi bi-box-arrow-right me-2"></i> Logout
-                    </button>
+                    <Link to="/admin/dashboard" className="list-group-item">Dashboard</Link>
+                    <Link to="/admin/skills" className="list-group-item">Skills</Link>
+                    <Link to="/admin/projects" className="list-group-item">Projects</Link>
+                    <Link to="/admin/education" className="list-group-item">Education</Link>
+                    <Link to="/admin/users" className="list-group-item">Add Users</Link>
+                    <button className="list-group-item logout-btn" onClick={handleLogout}>Logout</button>
                 </div>
-            </div>
+            </nav>
         </>
     );
 };

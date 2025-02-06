@@ -1,17 +1,17 @@
 .admin-dashboard-container {
   display: flex;
-  background-color: #1e1e1e; /* Darker background for richness */
+  background-color: #1e1e1e; 
   min-height: 100vh;
   color: #fff;
-  font-family: 'Lobster', cursive;  /* Clean and modern font */
-  transition: all 0.3s ease;         /* Smooth transition for layout changes */
+  font-family: 'Lobster', cursive;  
+  transition: all 0.3s ease;        
 }
 
-/* Dashboard Content Area */
+
 .dashboard-content {
   flex: 1;
   padding: 40px;
-  margin-left: 320px; /* Adjusted for sidebar width */
+  margin-left: 320px; 
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -19,16 +19,16 @@
   justify-content: center;
 }
 
-/* Dashboard Title */
+
 .dashboard-title {
-  font-size: 3rem; /* Bigger title */
-  font-weight: 700; /* Heavier font weight */
+  font-size: 3rem;
+  font-weight: 700; 
   margin-bottom: 40px;
   color: #f0f0f0;
   text-align: center;
 }
 
-/* Dashboard Cards Container */
+
 .dashboard-cards {
   display: flex;
   flex-wrap: wrap;
@@ -39,41 +39,38 @@
   margin-top: 30px;
 }
 
-/* Individual Dashboard Card */
+
 .dashboard-card {
-  background-color: #2c3e50; /* Darker card background */
+  background-color: #2c3e50; 
   padding: 40px;
-  border-radius: 20px; /* More rounded corners */
-  flex: 1 1 300px; /* Flexible sizing for better responsiveness */
+  border-radius: 20px;
+  flex: 1 1 300px; 
   text-align: center;
   transition: background-color 0.3s, transform 0.3s;
   max-width: 350px;
 }
 
-/* Dashboard Card Headings */
 .dashboard-card h3 {
-  font-size: 2.2rem; /* Bigger heading */
+  font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #ecf0f1; /* Lighter heading color */
+  color: #ecf0f1;
 }
 
-/* Dashboard Card Numbers */
+
 .dashboard-card p {
-  font-size: 3.5rem; /* Bigger numbers */
+  font-size: 3.5rem; 
   font-weight: 700;
-  color: #7279dd; /* Blue color for numbers */
+  color: #7279dd; 
 }
 
-/* Hover Effect for Dashboard Cards */
+
 .dashboard-card:hover {
-  background-color: #34495e; /* Slightly lighter background */
-  transform: translateY(-10px); /* Floating effect */
+  background-color: #34495e; 
+  transform: translateY(-10px);
 }
 
-/* ==========================================================================
-   Admin Dashboard Responsive Styles (Small Screens)
-   ========================================================================== */
+
 @media (max-width: 768px) {
   .admin-dashboard-container {
     flex-direction: column;
@@ -81,7 +78,7 @@
   }
 
   .dashboard-content {
-    margin-left: 0; /* Remove left margin when sidebar is hidden */
+    margin-left: 0; 
     padding: 20px;
   }
 

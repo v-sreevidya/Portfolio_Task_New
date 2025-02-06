@@ -17,30 +17,29 @@ const AdminLogin = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(""); 
-
-    
+    setError("");
     const credentials = btoa(`${username}:${password}`);
-
+  
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/admin/login",
-        {},
+      const response = await axios.post("http://localhost:8080/api/admin/login",
+       {
+        username: username,
+        password: password,
+       },
         {
           headers: {
             Authorization: `Basic ${credentials}`, 
           },
-        }
-      );
-
-      if (response.status === 200) {
         
+        
+      });
+  
+      if (response.status === 200) {
         setIsAuthenticated(true);
         localStorage.setItem("isAuthenticated", "true");
         navigate("/admin/dashboard");
       }
     } catch (err) {
-      
       setError("Invalid credentials. Please try again.");
       localStorage.setItem("isAuthenticated", "false");
     }

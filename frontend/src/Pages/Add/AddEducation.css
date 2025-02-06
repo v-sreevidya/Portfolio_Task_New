@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #121212;  /* Dark background to match overall theme */
+    background-color: #121212;  
     color: #f8f9fa;
     width: 100%;
     min-height: 100vh;
@@ -12,12 +12,12 @@
 }
 
 .add-education-container h2 {
-    font-family: 'Lobster', cursive;  /* Creative and bold font for the title */
+    font-family: 'Lobster', cursive;  
     font-size: 2.8rem;
     font-weight: 700;
     margin: 3rem 0 30px;
     text-align: center;
-    color: #ff6f00;  /* Neon orange color */
+    color: #ff6f00;  
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -55,7 +55,7 @@ input[type="text"] {
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #ff6f00;  /* Neon orange border */
+    border-color: #ff6f00;  
 }
 
 button[type="submit"] {

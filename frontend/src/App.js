@@ -10,11 +10,11 @@ import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import AdminSkills from "./Pages/Admin/AdminSkills";  
 import Sidebar from "./Components/Sidebar";
 import EditSkill from "./Pages/Edit/EditSkill";
-import AddSkill from "./Pages/Add/AddSkill";
+
 import AdminProjects from "./Pages/Admin/AdminProjects";
 import AddProject from "./Pages/Add/AddProject";
 import EditProject from "./Pages/Edit/EditProject";
-import { useAuth } from "./Pages/Authentication";
+
 import './App.css';
 import { AuthProvider } from "./Pages/Authentication";
 import ProtectedRoute from "./Pages/Admin/ProtectedRoute";
@@ -30,10 +30,14 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
+
+
           {/* Portfolio Routes */}
           <Route path="/" element={<><NavbarComponent /><HomePage /></>} />
           <Route path="/skills/:id" element={<><NavbarComponent /><Skills /></>} />
           <Route path="/projects/:id" element={<><NavbarComponent /><Project1 /></>} />
+
+
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLogin />} />
@@ -57,41 +61,39 @@ function App() {
           />
           <Route path="/admin/skills/edit/:id" element={<div className="admin-container">
             <Sidebar />
-            <EditSkill /> </div>} />
-          <Route path="/admin/skills/add" element={<div className="admin-container">
-            <Sidebar />
-            <AddSkill /> </div>} />
+            <ProtectedRoute component={EditSkill} /> </div>} />
+          
           <Route path="/admin/projects/add" element={ <div className="admin-container">
             <Sidebar />
-            <AddProject />
+            <ProtectedRoute component={AddProject} />
           </div>} />
           <Route path="/admin/projects/edit/:id" element={ <div className="admin-container">
             <Sidebar />
-            <EditProject />
+            <ProtectedRoute component={EditProject} />
           </div>} />
           <Route path="/admin/education" element={ <div className="admin-container">
             <Sidebar />
-            <AdminEducation />
+            <ProtectedRoute component={AdminEducation} />
           </div>} />
           <Route path="/admin/education/add" element={ <div className="admin-container">
             <Sidebar />
-            <AddEducation />
+            <ProtectedRoute component={AddEducation} />
           </div>} />
           <Route path="/admin/education/edit/:id" element={ <div className="admin-container">
             <Sidebar />
-            <EditEducation />
+            <ProtectedRoute component={EditEducation} />
           </div>} />
-          <Route path="/admin/user" element={ <div className="admin-container">
+          <Route path="/admin/users" element={ <div className="admin-container">
             <Sidebar />
-            <AdminUsers />
+            <ProtectedRoute component={AdminUsers} />
           </div>} />
           <Route path="/admin/users/add" element={ <div className="admin-container">
             <Sidebar />
-            <AddUsers />
+            <ProtectedRoute component={AddUsers} />
           </div>} />
           <Route path="/admin/users/edit/:id" element={ <div className="admin-container">
             <Sidebar />
-            <EditUser />
+            <ProtectedRoute component={EditUser} />
           </div>} />
         </Routes>
       </BrowserRouter>

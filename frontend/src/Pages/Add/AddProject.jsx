@@ -23,7 +23,7 @@ const AddProject = () => {
                     "Content-Type": "multipart/form-data",
                 },
             });
-            navigate("/admin/projects"); // Redirect to Projects list after adding
+            navigate("/admin/projects"); 
         } catch (error) {
             console.error("Error adding project:", error);
         }
@@ -62,7 +62,7 @@ const AddProject = () => {
                         required
                     />
                 </label>
-                {image && <p className="image-name">{image.name}</p>} {/* Display image name */}
+                {image && <p className="image-name">{image.name}</p>} 
                 <button type="submit">Add Project</button>
             </form>
         </div>

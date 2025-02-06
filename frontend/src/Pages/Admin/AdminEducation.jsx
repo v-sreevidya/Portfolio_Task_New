@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Sidebar from "../../Components/Sidebar";
+
+import ErrorModal from "../../Components/ErrorModal";
 import "./AdminEducation.css";
-import Swal from "sweetalert2";
+
 
 const AdminEducation = () => {
     const [educationList, setEducationList] = useState([]);
     const [degree, setDegree] = useState("");
     const [institution, setInstitution] = useState("");
     const [year, setYear] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+    const [isModalOpen, setIsModalOpen] = useState(false); 
+    const [isErrorModalOpen, setIsErrorModalOpen] = useState(false); 
+    const [errorMessage, setErrorMessage] = useState(""); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -24,26 +27,18 @@ const AdminEducation = () => {
     }, []);
 
     const handleDelete = async (id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#d33",
-            cancelButtonColor: "#3085d6",
-            confirmButtonText: "Yes, delete it!"
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                try {
-                    await axios.delete(`http://localhost:8080/api/educations/delete/${id}`);
-                    setEducationList(prevList => prevList.filter(item => item.id !== id));
-                    Swal.fire("Deleted!", "The education entry has been deleted.", "success");
-                } catch (error) {
-                    Swal.fire("Error!", "Something went wrong.", "error");
-                    console.error("Error deleting education entry:", error);
-                }
+        const confirmDeletion = window.confirm("Are you sure you want to delete this education?");
+        if (confirmDeletion) {
+            try {
+                await axios.delete(`http://localhost:8080/api/educations/delete/${id}`);
+                setEducationList(prevList => prevList.filter(item => item.id !== id));
+                alert("Deleted successfully!");
+            } catch (error) {
+                setErrorMessage("Error deleting education entry. Please try again.");
+                setIsErrorModalOpen(true);
+                console.error("Error deleting education entry:", error);
             }
-        });
+        }
     };
 
     const handleEdit = (id) => {
@@ -51,11 +46,11 @@ const AdminEducation = () => {
     };
 
     const openModal = () => {
-        setIsModalOpen(true); // Open modal
+        setIsModalOpen(true);
     };
 
     const closeModal = () => {
-        setIsModalOpen(false); // Close modal
+        setIsModalOpen(false);
     };
 
     const handleSubmit = async (e) => {
@@ -74,23 +69,27 @@ const AdminEducation = () => {
                 },
             });
 
-            setIsModalOpen(false); // Close modal after submitting
+            setIsModalOpen(false); 
             alert("Education added successfully!");
-            setDegree(""); // Clear the form
+            setDegree(""); 
             setInstitution("");
             setYear("");
-            // Re-fetch the education list
+            
             const response = await axios.get('http://localhost:8080/api/educations/get');
             setEducationList(response.data);
         } catch (error) {
+            setErrorMessage("Error adding education. Please try again.");
+            setIsErrorModalOpen(true);
             console.error("Error adding education:", error);
-            alert("Error adding education!");
         }
+    };
+
+    const closeErrorModal = () => {
+        setIsErrorModalOpen(false); 
     };
 
     return (
         <div className="admin-container2">
-            
             <div className="education-container2">
                 <div className="education-header2">
                     <h2 className="section-title">Education List</h2>
@@ -128,7 +127,7 @@ const AdminEducation = () => {
                 </div>
             </div>
 
-            {/* Add Education Modal */}
+            
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
@@ -169,6 +168,13 @@ const AdminEducation = () => {
                     </div>
                 </div>
             )}
+
+           
+            <ErrorModal 
+                isOpen={isErrorModalOpen} 
+                onClose={closeErrorModal} 
+                message={errorMessage} 
+            />
         </div>
     );
 };

@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-/* Users Container */
 .users-container {
     margin-left: 250px;  
     padding: 30px;
@@ -18,7 +11,7 @@
     align-items: stretch;
 }
 
-/* Users Header */
+
 .users-header {
     display: flex;
     justify-content: center;
@@ -31,7 +24,7 @@
     padding: 20px 0;
 }
 
-/* Section Title */
+
 .users-header .section-title {
     font-family: 'Lobster', cursive;
     text-transform: uppercase;
@@ -41,7 +34,7 @@
     color: #f8f9fa;
 }
 
-/* Add User Button */
+
 .add-user-btn {
     position: fixed;
     right: calc(100px + 20px);
@@ -59,7 +52,7 @@
     background-color: #218838;
 }
 
-/* Users Table Container */
+
 .users-table-container {
     margin-top: 30px;
     max-width: 100%;
@@ -68,7 +61,7 @@
     flex-grow: 1;
 }
 
-/* Users Table */
+
 .users-table {
     width: 100%;
     border-collapse: collapse;
@@ -78,24 +71,24 @@
     color: white;
 } 
 
-/* Table Head */
+
 .users-table thead {
     background-color: #7279dd;
 }
 
-/* Table Cells */
+
 .users-table th, .users-table td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #444;
 }
 
-/* Table Hover Effect */
+
 .users-table tbody tr:hover {
     background-color: #333;
 }
 
-/* Edit & Delete Buttons */
+
 .edit-btn, .delete-btn {
     padding: 6px 12px;
     margin-right: 10px;
@@ -124,7 +117,7 @@
     background-color: #c82333;
 }
 
-/* Scrollbar Styling */
+
 .users-table-container::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -143,95 +136,84 @@
     background-color: #888;
 }
 
-/* Modal Styling */
-.modal-overlay {
+
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    max-width: 100%;
+    width: 250px;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-content {
     background-color: #222;
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-/* Modal buttons */
-.modal-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-}
-
-.modal-buttons button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.modal-buttons button[type="submit"] {
-    background-color: #7279dd;
     color: white;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 20px;
+    transform: translateX(0);
 }
 
-.modal-buttons button[type="button"] {
-    background-color: #f44336;
-    color: white;
-}
-
-.modal-buttons button:hover {
-    opacity: 0.8;
-}
-
-/* Form fields styling */
-form label {
+.sidebar a {
     display: block;
-    margin: 10px 0 5px;
-}
-
-form input {
-    width: 100%;
-    padding: 8px;
-    font-size: 1rem;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    outline: none;
-    background-color: #333;
+    padding: 15px 20px;
+    text-decoration: none;
     color: white;
+    font-size: 18px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-   
+.sidebar a:hover {
+    background-color: #444;
+}
 
+
+.hamburger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1200;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        position: fixed;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .hamburger-menu {
+        display: block;
+    }
     .users-container {
         margin-left: 0;
-        padding: 15px;
+        padding: 10px;
     }
-
-    .users-table {
-        font-size: 12px;
+    .users-header .section-title {
+        font-size: 2rem;
     }
-
     .add-user-btn {
-        top: 10px;
         right: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
     }
+    .users-table th, .users-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
 
-    .modal-content {
-        width: 90%;
-        padding: 1.5rem;
+@media (max-width: 480px) {
+    .users-header .section-title {
+        font-size: 1.8rem;
+    }
+    .add-user-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+    .users-table th, .users-table td {
+        font-size: 12px;
     }
 }

@@ -56,7 +56,7 @@ const AdminProjects = () => {
     };
 
     const closeModal = () => {
-        setIsModalOpen(false);
+        setIsModalOpen(false);//c
         setTitle("");
         setDetails("");
         setImage(null);
@@ -88,7 +88,7 @@ const AdminProjects = () => {
 
             setIsModalOpen(false);
             alert("Project added successfully!");
-            setTitle("");
+            setTitle("");//form reset
             setDetails("");
             setImage(null);
             setPreview(null);

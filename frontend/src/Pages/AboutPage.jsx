@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import profileimg from "./../Assets/Images/Anna.jpeg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+
 import { faBusinessTime } from "@fortawesome/free-solid-svg-icons";
 import './AboutPage.css';
 
@@ -11,7 +11,7 @@ const AboutPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetching education data from the backend
+  
   useEffect(() => {
     const fetchEducationsData = async () => {
       try {

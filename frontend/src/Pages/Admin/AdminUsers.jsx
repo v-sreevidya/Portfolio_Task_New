@@ -11,11 +11,11 @@ const AdminUsers = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+    const [isModalOpen, setIsModalOpen] = useState(false); 
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:8080/api/users/get")
+        axios.get("http://localhost:8080/api/admin/all")
             .then(response => {
                 setUsers(response.data);
             })
@@ -23,6 +23,8 @@ const AdminUsers = () => {
                 console.error("Error fetching users:", error);
             });
     }, []);
+ 
+
 
     const handleDelete = async (id) => {
         Swal.fire({
@@ -36,7 +38,7 @@ const AdminUsers = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axios.delete(`http://localhost:8080/api/users/del/${id}`);
+                    await axios.delete(`http://localhost:8080/api/admin/delete/${id}`);
                     setUsers(users.filter(user => user.id !== id));
                     Swal.fire("Deleted!", "User has been deleted.", "success");
                 } catch (error) {
@@ -48,15 +50,15 @@ const AdminUsers = () => {
     };
 
     const handleEdit = (id) => {
-        navigate(`/admin/users/edit/${id}`);
+        navigate(`/admin/edit/${id}`);
     };
 
     const openModal = () => {
-        setIsModalOpen(true); // Open modal
+        setIsModalOpen(true); 
     };
 
     const closeModal = () => {
-        setIsModalOpen(false); // Close modal
+        setIsModalOpen(false); 
     };
 
     const handleSubmit = async (e) => {
@@ -67,23 +69,26 @@ const AdminUsers = () => {
             username,
             email,
             password,
+    
         };
 
         try {
             await axios.post("http://localhost:8080/api/admin/register", userData, {
                 headers: {
                     "Content-Type": "application/json",
+                    
                 },
             });
 
-            setIsModalOpen(false); // Close modal after submitting
+            setIsModalOpen(false); 
             alert("User added successfully!");
-            setName(""); // Clear the form
+            // Clear the form
             setUsername("");
-            setEmail("");
+           
             setPassword("");
-            // Re-fetch the users list
-            const response = await axios.get("http://localhost:8080/api/users/get");
+            
+           
+            const response = await axios.get("http://localhost:8080/api/admin/all");
             setUsers(response.data);
         } catch (error) {
             console.error("Error adding user:", error);
@@ -95,7 +100,7 @@ const AdminUsers = () => {
         <div className="admin-container">
             
             <div className="users-container">
-                {/* Fixed navbar-like section */}
+             
                 <div className="users-header">
                     <h2 className="section-title">Users List</h2>
                     <button className="add-user-btn" onClick={openModal}>
@@ -103,16 +108,15 @@ const AdminUsers = () => {
                     </button>
                 </div>
 
-                {/* Table to show users */}
+              
                 <div className="users-table-container">
                     <table className="users-table">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Username</th>
-                                <th>Email</th>
-                                <th>Name</th>
-                                <th>Password</th>
+                               
+                                
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -121,9 +125,8 @@ const AdminUsers = () => {
                                 <tr key={user.id}>
                                     <td>{user.id}</td>
                                     <td>{user.username}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.name}</td>
-                                    <td>******</td> {/* Masked password for security */}
+                                    
+                                   
                                     <td>
                                         <button className="edit-btn" onClick={() => handleEdit(user.id)}>Edit</button>
                                         <button className="delete-btn" onClick={() => handleDelete(user.id)}>Delete</button>
@@ -135,21 +138,13 @@ const AdminUsers = () => {
                 </div>
             </div>
 
-            {/* Add User Modal */}
+            
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <h2>Add New User</h2>
                         <form onSubmit={handleSubmit}>
-                            <label>
-                                Name:
-                                <input
-                                    type="text"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    required
-                                />
-                            </label>
+                            
                             <label>
                                 Username:
                                 <input
@@ -159,15 +154,7 @@ const AdminUsers = () => {
                                     required
                                 />
                             </label>
-                            <label>
-                                Email:
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required
-                                />
-                            </label>
+                           
                             <label>
                                 Password:
                                 <input

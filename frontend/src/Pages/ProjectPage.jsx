@@ -12,8 +12,8 @@ const ProjectPage = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get("http://localhost:8080/api/projects/get");
-        console.log("API Response Data:", response.data); // Check what data you're receiving
-        // Ensure response.data is an array
+        console.log("API Response Data:", response.data); 
+        
         setProjects(Array.isArray(response.data) ? response.data : []);
         setIsLoading(false);
       } catch (err) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sidebar from "../../Components/Sidebar";
-import "./AdminDashboard.css"; // Importing dark theme CSS
+import "./AdminDashboard.css"; 
 
 const AdminDashboard = () => {
     
@@ -10,28 +10,28 @@ const AdminDashboard = () => {
     const [projectCount, setProjectCount] = useState(0);
     const [skillCount, setSkillCount] = useState(0);
 
-    // Fetch counts on component mount
+   
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Get the count of users
-                const usersResponse = await axios.get("http://localhost:8080/api/users/get");
-                setUserCount(usersResponse.data.length); // Assuming the data is an array
+               
+                const usersResponse = await axios.get("http://localhost:8080/api/admin/get");
+                setUserCount(usersResponse.data.length); 
 
-                // Get the count of projects
+                
                 const projectsResponse = await axios.get("http://localhost:8080/api/projects/get");
-                setProjectCount(projectsResponse.data.length); // Assuming the data is an array
+                setProjectCount(projectsResponse.data.length); 
 
-                // Get the count of skills
+                
                 const skillsResponse = await axios.get("http://localhost:8080/api/skills/get");
-                setSkillCount(skillsResponse.data.length); // Assuming the data is an array
+                setSkillCount(skillsResponse.data.length); 
             } catch (error) {
                 console.error("Error fetching counts:", error);
             }
         };
 
         fetchData();
-    }, []); // Empty array ensures it only runs once after component mounts
+    }, []); 
 
     return (
         

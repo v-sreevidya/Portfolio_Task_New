@@ -5,9 +5,9 @@ button.list-group-item {
     text-align: left;
 }
 
-/* Container for skills */
+
 .skills-container {
-    /* Mobile first: no left margin */
+   
     margin-left: 0;
     flex: 1;
     padding: 10px;
@@ -19,7 +19,7 @@ button.list-group-item {
     overflow: hidden;
 }
 
-/* Header Styles */
+
 .skills-header {
     display: flex;
     justify-content: center;
@@ -36,12 +36,12 @@ button.list-group-item {
     font-family: 'Lobster', cursive;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 1rem;  /* Base mobile font-size */
+    font-size: 1rem; 
     font-weight: bold;
     color: #f8f9fa;
 }
 
-/* Add Skill Button */
+
 .add-skill-btn {
     position: fixed;
     top: 5px;
@@ -103,7 +103,7 @@ button.list-group-item {
     border-radius: 5px;
 }
 
-/* Action Buttons */
+
 .edit-btn, 
 .delete-btn {
     padding: 4px 8px;
@@ -133,7 +133,7 @@ button.list-group-item {
     background-color: #c82333;
 }
 
-/* Custom Scrollbar for table container */
+
 .skills-table-container::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -232,3 +232,147 @@ button.list-group-item {
         padding: 6px 12px;
     }
 }
+/* Modal Overlay Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px; 
+    box-sizing: border-box;
+}
+
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content label {
+   
+    font-size: 14px;
+}
+
+.modal-scrollable-content::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+
+.modal-scrollable-content::-webkit-scrollbar-track {
+    background-color: #333; 
+    border-radius: 10px; 
+}
+
+.modal-scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #7279dd;
+    border-radius: 10px;
+    border: 2px solid #222; 
+}
+
+
+.modal-scrollable-content::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+.modal-scrollable-content::-webkit-scrollbar-button {
+    background-color: #666; 
+    width: 16px;
+    height: 16px;
+}
+
+
+.modal-scrollable-content::-webkit-scrollbar:focus {
+    background-color: #555;
+}
+
+
+.modal-content input[type="text"],
+.modal-content input[type="file"],
+.modal-content textarea {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-buttons button[type="submit"] {
+    background-color: #7279dd;
+    color: white;
+}
+
+.modal-buttons button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+.modal-buttons button:hover {
+    opacity: 0.9;
+}
+
+
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .modal-content label {
+        font-size: 12px;
+    }
+
+    .modal-content input[type="text"],
+    .modal-content input[type="file"],
+    .modal-content textarea {
+        font-size: 12px;
+    }
+
+    .modal-buttons button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .modal-content {
+        padding: 20px;
+        max-width: 80%;
+    }
+
+    .modal-buttons button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+

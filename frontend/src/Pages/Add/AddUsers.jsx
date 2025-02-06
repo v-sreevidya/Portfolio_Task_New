@@ -14,13 +14,14 @@ const AddUsers = () => {
     e.preventDefault();
 
     
-    const encodedPassword = btoa(password);
+   
 
     const userData = {
       name,
       username,
       email,
-      password: encodedPassword, 
+      password,
+     
     };
 
     try {
@@ -33,7 +34,7 @@ const AddUsers = () => {
 
       if (response.status === 201) {
         
-        navigate("/admin/dashboard");
+        navigate("api/admin/dashboard");
       }
     } catch (error) {
       if (error.response) {

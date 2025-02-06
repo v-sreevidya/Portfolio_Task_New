@@ -1,4 +1,4 @@
-/* Container Styling */
+
 .add-project-container {
     display: flex;
     flex-direction: column;
@@ -7,18 +7,18 @@
     height: 100vh;
     width: 100%;
     padding: 20px;
-    background-color: #121212; /* Deep black background */
+    background-color: #121212;
     color: #f8f8f8;
     font-family: 'Roboto', sans-serif;
     border-radius: 10px;
     box-sizing: border-box;
 }
 
-/* Title Styling */
+
 .add-project-container h2 {
     font-size: 2.4rem;
     font-weight: bold;
-    color: #7279dd; /* Violet-Blue */
+    color: #7279dd; 
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-align: center;
@@ -26,7 +26,7 @@
     text-shadow: 0 0 10px rgba(114, 121, 221, 0.6);
 }
 
-/* Form Styling */
+
 .add-project-container form {
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@
     box-shadow: 0px 4px 12px rgba(114, 121, 221, 0.3);
 }
 
-/* Label Styling */
+
 .add-project-container label {
     display: block;
     font-size: 1.1rem;
@@ -47,7 +47,7 @@
     color: #e0e0e0;
 }
 
-/* Input & Textarea Styling */
+
 .add-project-container input,
 .add-project-container textarea {
     width: 100%;
@@ -67,20 +67,20 @@
     box-shadow: 0 0 10px rgba(114, 121, 221, 0.6);
 }
 
-/* Textarea */
+
 .add-project-container textarea {
     height: 140px;
     resize: vertical;
 }
 
-/* Image Name Display */
+
 .image-name {
     font-size: 0.9rem;
     color: #bbb;
     margin-top: 5px;
 }
 
-/* Buttons */
+
 .add-project-container button {
     padding: 12px 26px;
     background: linear-gradient(135deg, #7279dd, #858bdf);
@@ -100,7 +100,7 @@
     box-shadow: 0px 6px 15px rgba(114, 121, 221, 0.6);
 }
 
-/* Modal Styling */
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -114,7 +114,7 @@
     z-index: 1000;
 }
 
-/* Modal Content */
+
 .modal-content {
     background-color: #181818;
     color: #fff;
@@ -127,7 +127,7 @@
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* Close Button */
+
 .close-btn {
     position: absolute;
     top: 12px;
@@ -144,7 +144,7 @@
     color: #858bdf;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .add-project-container {
         padding: 20px;
@@ -165,7 +165,7 @@
     }
 }
 
-/* Fade In Animation */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
